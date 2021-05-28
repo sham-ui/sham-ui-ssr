@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should override default attributes 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "attr": Object {
+      "id": "boo",
+    },
+  },
+  "html": "<div id=\\"boo\\"></div>",
+}
+`;
+
+exports[`should override variables attributes 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "attr": Object {},
+    "id": "bar",
+  },
+  "html": "<div id=\\"bar\\"></div>",
+}
+`;
+
+exports[`should render arrays 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "list": Array [
+      "a",
+      "b",
+      "c",
+      "d",
+    ],
+  },
+  "html": "
+<ul>
+  <li>0
+    <!--0-->:
+    <!--1-->a
+  </li>
+  <li>1
+    <!--0-->:
+    <!--1-->b
+  </li>
+  <li>2:c</li>
+  <li>3:d</li>
+</ul>
+",
+}
+`;
+
+exports[`should work for custom tags 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "attr": Object {
+      "boo": "Boo-Ya",
+    },
+  },
+  "html": "
+<div>
+  <i>foo</i>
+  <i>Boo-Ya</i>
+  <i>bar</i>
+</div>
+",
+}
+`;
+
+exports[`should work for custom tags proxy __data__ 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "bar": "bar",
+    "boo": "Boo-Ya",
+    "foo": "foo",
+  },
+  "html": "
+<div>
+  <i>foo</i>
+  <i>Boo-Ya</i>
+  <i>bar</i>
+</div>
+",
+}
+`;
+
+exports[`should work for custom tags with attributes with values 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "attr": Object {
+      "foo": "over foo",
+    },
+    "foo": "for",
+  },
+  "html": "
+<div>
+  <i>for</i>
+  <i>boo</i>
+  <i>bar</i>
+</div>
+",
+}
+`;
+
+exports[`should work for custom tags with constant attributes values 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "attr": Object {
+      "foo": "over foo",
+    },
+  },
+  "html": "
+<div>
+  <i>over foo</i>
+  <i>boo</i>
+  <i>bar</i>
+</div>
+",
+}
+`;
+
+exports[`should work for html elements 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "attr": Object {
+      "class": "foo",
+      "data-attr": "data",
+      "id": "id",
+    },
+  },
+  "html": "<div id=\\"id\\" data-attr=\\"data\\" class=\\"foo\\"></div>",
+}
+`;

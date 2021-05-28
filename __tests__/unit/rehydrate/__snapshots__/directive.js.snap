@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`methods bind, update, unbind should be called 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "directives": Object {
+      "directive": [MockFunction] {
+        "calls": Array [
+          Array [
+            Component {
+              "DI": Object {
+                "bind": [Function],
+                "bindLazy": [Function],
+                "resolve": [Function],
+              },
+              "ID": "component",
+              "UI": Store {
+                "byId": Map {},
+              },
+              "__cache__": Object {},
+              "blocks": Object {},
+              "container": Root {
+                "childNodes": Array [
+                  Element {
+                    "attributes": Object {},
+                    "childNodes": Array [],
+                    "component": [Circular],
+                    "innerHTML": "",
+                    "parentNode": [Circular],
+                    "tagName": "div",
+                  },
+                ],
+              },
+              "defaultOptions": Object {
+                "DI": Object {
+                  "bind": [Function],
+                  "bindLazy": [Function],
+                  "resolve": [Function],
+                },
+                "ID": "component",
+                "container": Root {
+                  "childNodes": Array [
+                    Element {
+                      "attributes": Object {},
+                      "childNodes": Array [],
+                      "component": [Circular],
+                      "innerHTML": "",
+                      "parentNode": [Circular],
+                      "tagName": "div",
+                    },
+                  ],
+                },
+                "directives": [Circular],
+                "value": true,
+              },
+              "directives": [Circular],
+              "dom": Object {
+                "build": [Function],
+                "comment": [Function],
+                "el": [Function],
+                "text": [Function],
+                "unsafe": [Function],
+              },
+              "filters": Object {},
+              "hooks": Object {
+                "create": [Function],
+                "hydrate": [Function],
+                "rehydrate": [Function],
+                "resolveID": [Function],
+              },
+              "isRoot": true,
+              "nested": Array [],
+              "nodes": Array [
+                Element {
+                  "attributes": Object {},
+                  "childNodes": Array [],
+                  "component": [Circular],
+                  "innerHTML": "",
+                  "parentNode": Root {
+                    "childNodes": Array [
+                      [Circular],
+                    ],
+                  },
+                  "tagName": "div",
+                },
+              ],
+              "onMount": Array [],
+              "onRemove": Array [
+                [Function],
+              ],
+              "onRender": [Function],
+              "options": Object {
+                "DI": Object {
+                  "bind": [Function],
+                  "bindLazy": [Function],
+                  "resolve": [Function],
+                },
+                "ID": "component",
+                "container": Root {
+                  "childNodes": Array [
+                    Element {
+                      "attributes": Object {},
+                      "childNodes": Array [],
+                      "component": [Circular],
+                      "innerHTML": "",
+                      "parentNode": [Circular],
+                      "tagName": "div",
+                    },
+                  ],
+                },
+                "directives": [Circular],
+                "value": true,
+              },
+              "owner": undefined,
+              "parent": undefined,
+              "spots": Array [
+                Array [
+                  "value",
+                  [Function],
+                ],
+              ],
+            },
+          ],
+          Array [
+            Component {
+              "DI": Object {
+                "bind": [Function],
+                "bindLazy": [Function],
+                "resolve": [Function],
+              },
+              "ID": "component",
+              "UI": Store {
+                "byId": Map {},
+              },
+              "__cache__": Object {},
+              "blocks": Object {},
+              "container": <body />,
+              "directives": [Circular],
+              "dom": Object {
+                "build": [Function],
+                "comment": [Function],
+                "el": [Function],
+                "text": [Function],
+                "unsafe": [Function],
+              },
+              "filters": Object {},
+              "hooks": Object {
+                "create": [Function],
+                "hydrate": [Function],
+                "rehydrate": [Function],
+                "resolveID": [Function],
+              },
+              "isRoot": true,
+              "nested": Array [],
+              "nodes": Array [
+                <div />,
+              ],
+              "onMount": Array [],
+              "onRemove": Array [
+                [Function],
+              ],
+              "onRender": [Function],
+              "options": Object {
+                "DI": Object {
+                  "bind": [Function],
+                  "bindLazy": [Function],
+                  "resolve": [Function],
+                },
+                "ID": "component",
+                "container": <body />,
+                "directives": [Circular],
+                "value": true,
+              },
+              "owner": undefined,
+              "parent": undefined,
+              "spots": Array [
+                Array [
+                  "value",
+                  [Function],
+                ],
+              ],
+            },
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      },
+    },
+    "value": true,
+  },
+  "html": "",
+}
+`;
+
+exports[`ref directive 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "directives": Object {
+      "ref": [Function],
+    },
+    "test": false,
+  },
+  "html": "",
+}
+`;
+
+exports[`ref directive with custom tag 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "directives": Object {
+      "ref": [Function],
+    },
+    "test": false,
+  },
+  "html": "
+<div>
+  <div id=\\"foo\\">
+    <div id=\\"custom\\">bar</div>
+    <!--0-->
+  </div>
+</div>
+",
+}
+`;
+
+exports[`should be trimmed from html 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "directives": Object {
+      "content": [Function],
+      "fade": [Function],
+      "show": [Function],
+    },
+  },
+  "html": "
+<div></div>
+<div></div>
+<div></div>
+",
+}
+`;

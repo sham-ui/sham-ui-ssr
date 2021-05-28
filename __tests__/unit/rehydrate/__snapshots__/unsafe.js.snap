@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`if with unsafe tag 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "test": true,
+  },
+  "html": "
+<div>
+  <div>
+    <i>unsafe</i>
+  </div>
+</div>
+",
+}
+`;
+
+exports[`should insert constants as HTML 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+  },
+  "html": "
+<div>
+  <br>
+</div>
+",
+}
+`;
+
+exports[`should insert unsafe with placeholders 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "html": "<br><!-- comment --><link href=\\"http://ShamUIView.js.org\\">",
+  },
+  "html": "
+<div>
+  <br>
+</div>
+<div>
+  <br><!-- comment -->
+  <link href=\\"http://ShamUIView.js.org\\">
+</div>
+",
+}
+`;
+
+exports[`should insert variables as HTML 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "html": "<a href=\\"javascript:XSS;\\">Link</a>",
+  },
+  "html": "
+<div>
+  <a href=\\"javascript:XSS;\\">Link</a>
+</div>
+",
+}
+`;
+
+exports[`should remove old DOM nodes and insert new 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "html": "<!-- comment -->",
+  },
+  "html": "
+<div>
+  <!-- comment -->
+</div>
+",
+}
+`;
+
+exports[`should work with first level non-elements 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "cond1": true,
+    "loop1": Array [
+      1,
+      2,
+      3,
+    ],
+    "tag": true,
+    "xss": "ok",
+  },
+  "html": "
+text <div class=\\"if\\">ok</div>
+<!--0-->
+<div class=\\"for\\">ok</div>
+<div class=\\"for\\">ok</div>
+<div class=\\"for\\">ok</div>
+<!--1-->
+<div on=\\"true\\">
+  <div class=\\"custom\\">ok</div>
+</div>
+<div>
+  <i class=\\"unsafe\\">ok</i>
+</div>
+",
+}
+`;

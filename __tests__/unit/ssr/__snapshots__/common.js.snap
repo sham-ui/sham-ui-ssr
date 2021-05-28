@@ -1,0 +1,435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should ignore all html comments 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "<span>Moon</span>",
+}
+`;
+
+exports[`should ignore script tag content 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "
+<script>
+  var result = 2 < 5;
+</script>
+",
+}
+`;
+
+exports[`should insert variable in attributes 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<input type=\\"text\\" value=\\"Value\\">",
+}
+`;
+
+exports[`should optimize "if"/"for" tag, if it is only child 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            0
+        ]
+    },
+    \\"2\\": {
+        \\"N\\": [
+            0
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\",
+            \\"2\\"
+        ],
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                1
+            ]
+        ]
+    }
+}",
+  "html": "
+<div>
+  <p>a</p>
+  <p>b</p>
+</div>
+",
+}
+`;
+
+exports[`should place placeholders for multiply "if" and "for" tags 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                1
+            ]
+        ]
+    }
+}",
+  "html": "
+<div>
+  <!--0-->
+  <!--1-->
+</div>
+",
+}
+`;
+
+exports[`should place placeholders for multiply "if" tags 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                1
+            ]
+        ]
+    }
+}",
+  "html": "
+<div>
+  <!--0-->
+  <!--1-->
+</div>
+",
+}
+`;
+
+exports[`should properly for with filters 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "<p>UPPER_CASE</p>",
+}
+`;
+
+exports[`should properly work with more then one node on topmost level 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            1,
+            [
+                1,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "
+<p>first</p>
+<p>second</p>
+",
+}
+`;
+
+exports[`should properly work with text constants in attributes 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<div class=\\"foo bar baz\\"></div>",
+}
+`;
+
+exports[`should properly work with text constants in text nodes 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                2
+            ],
+            [
+                0,
+                4
+            ]
+        ]
+    }
+}",
+  "html": "
+<p>foo
+  <!--0-->bar
+  <!--1--> baz
+</p>
+",
+}
+`;
+
+exports[`should render attributes without quotes 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<div class=\\"name\\"></div>",
+}
+`;
+
+exports[`should render empty attributes 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<input type=\\"checkbox\\" value=\\"\\" checked=true>",
+}
+`;
+
+exports[`should render simple DOM 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "<div>Content</div>",
+}
+`;
+
+exports[`should replace HTML entities with Unicode symbols 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "\\"&'<>©£±¶ — € ♥&notExists;",
+}
+`;
+
+exports[`should save value for variables in complex cases 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<div class=\\"first second\\"></div>",
+}
+`;
+
+exports[`should support expressions without variables 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "7",
+}
+`;
+
+exports[`should support global variables 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            4
+        ]
+    },
+    \\"2\\": {
+        \\"N\\": [
+            8
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\",
+            \\"2\\"
+        ],
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                2
+            ],
+            [
+                0,
+                5
+            ],
+            [
+                0,
+                6
+            ],
+            [
+                0,
+                9
+            ],
+            [
+                0,
+                10
+            ],
+            [
+                0,
+                11
+            ]
+        ]
+    }
+}",
+  "html": "
+<i>expr
+  <!--0-->,
+  <!--1-->if
+  <!--0-->,
+  <!--2-->for
+  <!--1-->, <i class=\\"attr\\"></i>
+</i>
+",
+}
+`;
+
+exports[`should support global variables 2`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            2,
+            4,
+            6,
+            8,
+            10,
+            12
+        ]
+    }
+}",
+  "html": "
+array
+<!--0-->,
+<!--1-->4
+<!--2-->,
+<!--3-->a;b
+<!--4-->,
+<!--5-->{\\"a\\":1,\\"b\\":2}
+",
+}
+`;
+
+exports[`should support style attribute 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "<div style=\\"background-color: red\\">DANGER</div>",
+}
+`;
+
+exports[`should work with expressions 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "<a title=\\"150\\">abc</a>",
+}
+`;

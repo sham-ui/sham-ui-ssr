@@ -1,0 +1,25 @@
+<template>
+    <div>
+        {% unsafe html %}
+    </div>
+    <button :onclick={{this[ ref( 'change' ) ]}}>Change</button>
+</template>
+
+
+<script>
+    function Dummy( options, update ) {
+        const visible = ref();
+        const html = ref();
+
+        options( {
+            [ visible ]: true,
+            [ html ]: ''
+        } );
+
+        this[ ref( 'change' ) ] = () => update( {
+            [ html ]: '<a href="javascript:XSS;">Link<' + '/a>'
+        } );
+    }
+
+    export default Component( Template, Dummy );
+</script>

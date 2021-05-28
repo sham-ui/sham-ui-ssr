@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should single file component correct work with context in blocks 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+  },
+  "html": "
+<div>
+  <div class=\\"title\\">
+    <!--0-->Title text
+    <!--1-->
+    <!--0-->
+  </div>
+</div>
+<!--0-->
+",
+}
+`;
+
+exports[`should single file component correct work with options 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "loaded": true,
+    "text": "Text for content",
+  },
+  "html": "
+Text for content
+<!--0-->
+",
+}
+`;
+
+exports[`should single file component work 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "loaded": true,
+  },
+  "html": "
+ Loaded!
+ <!--0-->
+",
+}
+`;
+
+exports[`should work with class getters in expressions 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+  },
+  "html": "<span>John Smith</span>",
+}
+`;
+
+exports[`should work with class getters in if 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "user": "Joh Smith",
+  },
+  "html": "
+<span>Joh Smith</span>
+<!--0-->
+",
+}
+`;
+
+exports[`should work with class property in for 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "userList": Array [
+      "John Smith",
+      "Adam Mock",
+    ],
+  },
+  "html": "
+<ul>
+  <li>John Smith</li>
+  <li>Adam Mock</li>
+</ul>
+",
+}
+`;

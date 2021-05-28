@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should single file component correct work with context in blocks 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"C\\": [
+            \\"2\\"
+        ],
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                5
+            ]
+        ]
+    },
+    \\"2\\": {
+        \\"N\\": [
+            0,
+            2,
+            4
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\"
+        ],
+        \\"N\\": [
+            1
+        ]
+    }
+}",
+  "html": "
+<div>
+  <div class=\\"title\\">
+    <!--0-->Title text
+    <!--1-->
+    <!--0-->
+  </div>
+</div>
+<!--0-->
+",
+}
+`;
+
+exports[`should single file component correct work with options 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<!--0-->",
+}
+`;
+
+exports[`should single file component work 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<!--0-->",
+}
+`;
+
+exports[`should work with class getters in expressions 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "<span>John Smith</span>",
+}
+`;
+
+exports[`should work with class getters in if 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\"
+        ],
+        \\"N\\": [
+            1
+        ]
+    }
+}",
+  "html": "
+<span>Joh Smith</span>
+<!--0-->
+",
+}
+`;
+
+exports[`should work with class property in for 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    },
+    \\"2\\": {
+        \\"N\\": [
+            1,
+            [
+                1,
+                0
+            ]
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\",
+            \\"2\\"
+        ],
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "
+<ul>
+  <li>John Smith</li>
+  <li>Adam Mock</li>
+</ul>
+",
+}
+`;

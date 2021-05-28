@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`if with unsafe tag 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            0
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\"
+        ],
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "
+<div>
+  <div>
+    <i>unsafe</i>
+  </div>
+</div>
+",
+}
+`;
+
+exports[`should insert constants as HTML 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "
+<div>
+  <br>
+</div>
+",
+}
+`;
+
+exports[`should insert unsafe with placeholders 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            1
+        ]
+    }
+}",
+  "html": "
+<div>
+  <br>
+</div>
+<div>
+  <hr>
+</div>
+",
+}
+`;
+
+exports[`should insert variables as HTML 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<div></div>",
+}
+`;
+
+exports[`should remove old DOM nodes and insert new 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "
+<div>
+  <div>foo</div>
+  <br>
+</div>
+",
+}
+`;
+
+exports[`should work with first level non-elements 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            1,
+            [
+                1,
+                0
+            ]
+        ]
+    },
+    \\"2\\": {
+        \\"N\\": [
+            3,
+            [
+                3,
+                0
+            ]
+        ]
+    },
+    \\"3\\": {
+        \\"N\\": [
+            4,
+            [
+                4,
+                0
+            ]
+        ]
+    },
+    \\"4\\": {
+        \\"N\\": [
+            5,
+            [
+                5,
+                0
+            ]
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\",
+            \\"2\\",
+            \\"3\\",
+            \\"4\\"
+        ],
+        \\"N\\": [
+            0,
+            2,
+            6,
+            7,
+            [
+                7,
+                0
+            ],
+            [
+                7,
+                0,
+                0
+            ],
+            8
+        ]
+    }
+}",
+  "html": "
+text <div class=\\"if\\">ok</div>
+<!--0-->
+<div class=\\"for\\">ok</div>
+<div class=\\"for\\">ok</div>
+<div class=\\"for\\">ok</div>
+<!--1-->
+<div on=\\"true\\">
+  <div class=\\"custom\\">ok</div>
+</div>
+<div>
+  <i class='unsafe'>ok</i>
+</div>
+",
+}
+`;

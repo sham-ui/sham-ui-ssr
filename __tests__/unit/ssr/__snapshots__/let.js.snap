@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should correct build spots order 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                0
+            ],
+            [
+                0,
+                1
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                2
+            ],
+            [
+                0,
+                2,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "
+<ul>
+  <li>6</li>
+  <li>5</li>
+  <li>3</li>
+</ul>
+",
+}
+`;
+
+exports[`should single file component and methods work 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                0
+            ],
+            [
+                0,
+                1
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                2
+            ],
+            [
+                0,
+                2,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "
+<ul>
+  <li>3</li>
+  <li>2</li>
+  <li>1</li>
+</ul>
+",
+}
+`;
+
+exports[`should single file component work 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            [
+                0,
+                0,
+                0
+            ],
+            [
+                0,
+                1
+            ],
+            [
+                0,
+                1,
+                0
+            ],
+            [
+                0,
+                2
+            ],
+            [
+                0,
+                2,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "
+<ul>
+  <li>3</li>
+  <li>2</li>
+  <li>1</li>
+</ul>
+",
+}
+`;
+
+exports[`should work in for loop 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    },
+    \\"2\\": {
+        \\"N\\": [
+            1,
+            [
+                1,
+                0
+            ]
+        ]
+    },
+    \\"3\\": {
+        \\"N\\": [
+            2,
+            [
+                2,
+                0
+            ]
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\",
+            \\"2\\",
+            \\"3\\"
+        ],
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "
+<ul>
+  <li>5</li>
+  <li>4</li>
+  <li>3</li>
+</ul>
+",
+}
+`;
+
+exports[`should work with const 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "84",
+}
+`;
+
+exports[`should't update let vars 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "84",
+}
+`;

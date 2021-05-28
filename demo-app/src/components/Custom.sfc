@@ -1,0 +1,59 @@
+<template>
+    Hello, {{firstName + lastName}}!
+    Test
+    <button disabled>
+        Disabled button
+    </button>
+
+    <a href="http://localhost/home">Home</a>
+
+    <p>
+        <input value="{{value}}" :oninput={{this[ ref( 'onInput' ) ]}} :ref="input"/>
+        {{value * 2}}
+    </p>
+
+    <p>
+        <span>
+            {% if enabled %}
+                <span class="success">Enabled :)</span>
+            {% else %}
+                <span class="danger">Disabled :(</span>
+            {% endif %}
+            <button :onclick={{this[ ref( 'toggleEnabled' ) ]}}>Toggle</button>
+        </span>
+    </p>
+    <ul>
+        {% for item of items %}
+            <li>{{item}}</li>
+        {% endfor %}
+    </ul>
+    <p>
+        Total items: {{items.length}}
+    </p>
+</template>
+
+<script>
+    function Custom( options, update ) {
+        const firstName = ref();
+        const lastName = ref();
+        const value = ref();
+        const enabled = ref();
+        const items = ref();
+
+        const state = options( {
+            [ firstName ]: 'John',
+            [ lastName ]: 'Smith',
+            [ value ]: 42,
+            [ enabled ]: true,
+            [ items ]: [ 'foo', 'bar', 'baz' ]
+        } );
+
+        this[ ref( 'onInput' ) ] = () => update( {
+            [ value ]: this.input.value
+        } );
+        this[ ref( 'toggleEnabled' ) ]  = () => update( {
+            [ enabled ]: !state[ enabled ]
+        } );
+    }
+    export default Component( Template, Custom );
+</script>

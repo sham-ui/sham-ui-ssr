@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`methods bind, update, unbind should be called 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<div></div>",
+}
+`;
+
+exports[`ref directive 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            0
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\"
+        ],
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "
+<div>
+  <div id=\\"foo\\">
+    <div id=\\"test-true\\"></div>
+  </div>
+</div>
+",
+}
+`;
+
+exports[`ref directive with custom tag 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"C\\": [
+            \\"2\\"
+        ],
+        \\"N\\": [
+            1
+        ]
+    },
+    \\"2\\": {
+        \\"O\\": {
+            \\"name\\": \\"foo\\"
+        },
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\"
+        ],
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "
+<div>
+  <div id=\\"foo\\">
+    <div id=\\"custom\\">foo</div>
+    <!--0-->
+  </div>
+</div>
+",
+}
+`;
+
+exports[`should be trimmed from html 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            1,
+            2
+        ]
+    }
+}",
+  "html": "
+<div></div>
+<div></div>
+<div></div>
+",
+}
+`;

@@ -1,0 +1,9 @@
+[
+  {
+    "path": "module/rehydrator.js",
+    "ignore": [
+      "sham-ui"
+    ],
+    "limit": "1 KB"
+  }
+]

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`function bind correctly work with directives 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ]
+        ]
+    }
+}",
+  "html": "<button>click me</button>",
+}
+`;

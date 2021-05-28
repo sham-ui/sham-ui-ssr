@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should delete old items from childred map with custom tag 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "list": Array [
+      Object {
+        "id": 1,
+        "value": "a",
+      },
+      Object {
+        "id": 3,
+        "value": "c",
+      },
+    ],
+  },
+  "html": "
+<div>
+  <ul>
+    <li>1:a</li>
+    <!--0-->
+    <li>3:c</li>
+    <!--0-->
+  </ul>
+</div>
+",
+}
+`;
+
+exports[`should iterate over arrays without options 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "obj": Array [
+      Object {
+        "name": "a",
+      },
+      Object {
+        "name": "b",
+      },
+      Object {
+        "name": "c",
+      },
+    ],
+  },
+  "html": "
+<div>a
+  <!--0-->;
+  <!--1-->b
+  <!--2-->;
+  <!--3-->c
+  <!--4-->;
+</div>
+",
+}
+`;
+
+exports[`should iterate over objects 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "obj": Object {
+      "a": 1,
+      "c": 3,
+      "d": 4,
+    },
+  },
+  "html": "
+<div>a
+  <!--0-->:
+  <!--1-->1
+  <!--2-->;
+  <!--3-->c
+  <!--4-->:
+  <!--5-->3
+  <!--6-->;
+  <!--7-->d
+  <!--8-->:
+  <!--9-->4
+  <!--10-->;
+</div>
+",
+}
+`;
+
+exports[`should not expose local variables 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "as": Array [
+      "a",
+      "b",
+    ],
+    "b": "GLOBAL",
+    "bs": Array [
+      1,
+      2,
+    ],
+  },
+  "html": "
+<section>
+  <i>
+    <b>1</b>
+    <b>2</b>
+  </i>
+  <i>
+    <b>1</b>
+    <b>2</b>
+  </i>
+</section>
+",
+}
+`;
+
+exports[`should render arrays 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "list": Array [
+      "a",
+      "b",
+      "c",
+      "d",
+    ],
+  },
+  "html": "
+<ul>
+  <li>0
+    <!--0-->:
+    <!--1-->a
+  </li>
+  <li>1
+    <!--0-->:
+    <!--1-->b
+  </li>
+  <li>2:c</li>
+  <li>3:d</li>
+</ul>
+",
+}
+`;
+
+exports[`should render arrays with externals 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "ext": ".js",
+    "list": Array [
+      1,
+      2,
+      3,
+    ],
+  },
+  "html": "
+<div>
+  <p>1
+    <!--0-->.js
+  </p>
+  <p>2
+    <!--0-->.js
+  </p>
+  <p>3
+    <!--0-->.js
+  </p>
+</div>
+",
+}
+`;

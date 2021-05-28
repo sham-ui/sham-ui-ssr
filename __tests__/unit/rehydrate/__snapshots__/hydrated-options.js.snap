@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hydrated options 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "adminID": "real admin ID",
+    "extraData": 42,
+  },
+  "html": "real admin ID",
+}
+`;

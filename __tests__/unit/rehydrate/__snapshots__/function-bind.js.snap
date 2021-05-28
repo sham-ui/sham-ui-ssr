@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`function bind correctly work with directives 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "directives": Object {
+      "onclick": [Function],
+    },
+    "handler": [MockFunction] {
+      "calls": Array [
+        Array [
+          Component {
+            "DI": Object {
+              "bind": [Function],
+              "bindLazy": [Function],
+              "resolve": [Function],
+            },
+            "ID": "component",
+            "UI": Store {
+              "byId": Map {
+                "component" => [Circular],
+              },
+            },
+            "__cache__": Object {},
+            "blocks": Object {},
+            "click": [Function],
+            "container": <body>
+              <button>
+                click me
+              </button>
+            </body>,
+            "directives": Object {
+              "onclick": [Function],
+            },
+            "dom": Object {
+              "build": [Function],
+              "comment": [Function],
+              "el": [Function],
+              "text": [Function],
+              "unsafe": [Function],
+            },
+            "filters": Object {},
+            "hooks": Object {
+              "create": [Function],
+              "hydrate": [Function],
+              "rehydrate": [Function],
+              "resolveID": [Function],
+            },
+            "isRoot": true,
+            "nested": Array [],
+            "nodes": Array [
+              <button>
+                click me
+              </button>,
+            ],
+            "onMount": Array [],
+            "onRemove": Array [
+              [Function],
+            ],
+            "onRender": [Function],
+            "options": Object {
+              "DI": Object {
+                "bind": [Function],
+                "bindLazy": [Function],
+                "resolve": [Function],
+              },
+              "ID": "component",
+              "container": <body>
+                <button>
+                  click me
+                </button>
+              </body>,
+              "directives": Object {
+                "onclick": [Function],
+              },
+              "handler": [MockFunction] {
+                "calls": [Circular],
+                "results": Array [
+                  Object {
+                    "isThrow": false,
+                    "value": undefined,
+                  },
+                ],
+              },
+            },
+            "owner": undefined,
+            "parent": undefined,
+          },
+          "click",
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": undefined,
+        },
+      ],
+    },
+  },
+  "html": "<button>click me</button>",
+}
+`;

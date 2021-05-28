@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <title>Demo for sham-ui-ssr</title>
+  <link rel="stylesheet" href="/dist/bundle.css" />
+  <style>
+    table {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    table tr th, table tr td {
+      max-width: 33%;
+      vertical-align: top;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>Server side rendered</th>
+        <th>Client application</th>
+        <th>Raw string</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td id="ssr-rendered"></td>
+        <td id="client"></td>
+        <td>
+          <div id="raw-html"></div>
+        </td>
+        <td>
+          <pre id="data"></pre>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <script src="/dist/bundle.js"></script>
+</body>
+</html>

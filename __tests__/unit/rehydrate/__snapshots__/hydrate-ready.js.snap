@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`defer hydrating with hydrateReady 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "dataLoaded": true,
+  },
+  "html": "
+ Data loaded!
+ <!--0-->
+",
+}
+`;
+
+exports[`defer hydrating with hydrateReady with element wrapper 1`] = `
+Object {
+  "Options": Object {
+    "ID": "component",
+    "dataLoaded": true,
+  },
+  "html": "
+<div>
+  <p>Page state</p>
+  <p>Data loaded!</p>
+  <!--0-->
+</div>
+",
+}
+`;

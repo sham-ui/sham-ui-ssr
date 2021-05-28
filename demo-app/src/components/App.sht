@@ -1,0 +1,15 @@
+<!--{% import Custom from './Custom.sfc' %}-->
+{% import Dummy from './Dummy.sfc' %}
+
+<main>
+<!--    <pre>-->
+<!--        Server side rendering for sham-ui-->
+<!--        {{text}}-->
+<!--    </pre>-->
+
+<!--    <Custom/>-->
+    {% if true %}
+        <Dummy html="tes"/>
+    {% endif %}
+
+</main>

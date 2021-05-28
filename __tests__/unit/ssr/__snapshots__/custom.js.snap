@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should properly work with attributes 1`] = `
+Object {
+  "data": "{
+    \\"1\\": {
+        \\"O\\": {
+            \\"title\\": \\"string\\",
+            \\"content\\": \\"text\\"
+        },
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            1,
+            [
+                1,
+                0
+            ]
+        ]
+    },
+    \\"2\\": {
+        \\"O\\": {
+            \\"title\\": \\"title\\",
+            \\"content\\": \\"content\\"
+        },
+        \\"N\\": [
+            3,
+            [
+                3,
+                0
+            ],
+            4,
+            [
+                4,
+                0
+            ]
+        ]
+    },
+    \\"component\\": {
+        \\"C\\": [
+            \\"1\\",
+            \\"2\\"
+        ],
+        \\"N\\": [
+            0,
+            [
+                0,
+                2
+            ],
+            [
+                0,
+                5
+            ]
+        ]
+    }
+}",
+  "html": "
+<div>
+  <h1>string</h1>
+  <div>text</div>
+  <!--0-->
+  <h1>title</h1>
+  <div>content</div>
+  <!--1-->
+</div>
+",
+}
+`;
