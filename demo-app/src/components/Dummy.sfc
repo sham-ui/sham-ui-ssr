@@ -2,21 +2,21 @@
     <div>
         {% unsafe html %}
     </div>
-    <button :onclick={{this[ ref( 'change' ) ]}}>Change</button>
+    <button :onclick={{this$.change}}>Change</button>
 </template>
 
 
 <script>
     function Dummy( options, update ) {
-        const visible = ref();
-        const html = ref();
+        const visible = $();
+        const html = $();
 
         options( {
             [ visible ]: true,
             [ html ]: ''
         } );
 
-        this[ ref( 'change' ) ] = () => update( {
+        this$.change = () => update( {
             [ html ]: '<a href="javascript:XSS;">Link<' + '/a>'
         } );
     }

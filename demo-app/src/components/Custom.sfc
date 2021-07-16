@@ -8,7 +8,7 @@
     <a href="http://localhost/home">Home</a>
 
     <p>
-        <input value="{{value}}" :oninput={{this[ ref( 'onInput' ) ]}} :ref="input"/>
+        <input value="{{value}}" :oninput={{this$.onInput}} :ref="input"/>
         {{value * 2}}
     </p>
 
@@ -19,7 +19,7 @@
             {% else %}
                 <span class="danger">Disabled :(</span>
             {% endif %}
-            <button :onclick={{this[ ref( 'toggleEnabled' ) ]}}>Toggle</button>
+            <button :onclick={{this$.toggleEnabled}}>Toggle</button>
         </span>
     </p>
     <ul>
@@ -34,11 +34,11 @@
 
 <script>
     function Custom( options, update ) {
-        const firstName = ref();
-        const lastName = ref();
-        const value = ref();
-        const enabled = ref();
-        const items = ref();
+        const firstName = $();
+        const lastName = $();
+        const value = $();
+        const enabled = $();
+        const items = $();
 
         const state = options( {
             [ firstName ]: 'John',
@@ -48,10 +48,10 @@
             [ items ]: [ 'foo', 'bar', 'baz' ]
         } );
 
-        this[ ref( 'onInput' ) ] = () => update( {
+        this$.onInput = () => update( {
             [ value ]: this.input.value
         } );
-        this[ ref( 'toggleEnabled' ) ]  = () => update( {
+        this$.toggleEnabled  = () => update( {
             [ enabled ]: !state[ enabled ]
         } );
     }

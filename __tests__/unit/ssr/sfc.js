@@ -35,7 +35,7 @@ it( 'should single file component correct work with options', async() => {
         
         <script>
             export default Component( Template, function( options ) {
-                const text = ref(); 
+                const text = $(); 
                 options( {
                     [ text ]: {
                         get() {
@@ -147,7 +147,7 @@ it( 'should work with class property in for', async() => {
         
         <script>
             export default Component( Template, function( options ) {
-                const userList = ref(); 
+                const userList = $(); 
                 options( {
                     [ userList ]: [ 
                         'John Smith',

@@ -18,7 +18,7 @@ it( 'defer hydrating with hydrateReady', async() => {
             
             <script>
                 export default Component( Template, function( options, update, didMount ) {
-                    const dataLoaded = ref();
+                    const dataLoaded = $();
                     
                     const state = options( {
                         [ dataLoaded ]: false
@@ -74,7 +74,7 @@ it( 'defer hydrating with hydrateReady with element wrapper', async() => {
             
             <script>
                 export default Component( Template, function( options, update, didMount ) {
-                    const dataLoaded = ref();
+                    const dataLoaded = $();
                     
                     const state = options( {
                         [ dataLoaded ]: false

@@ -12,7 +12,7 @@ it( 'hydrated options', async() => {
             
             <script>
                 export default Component( Template, function( options, update, didMount ) {
-                    const adminID = ref();
+                    const adminID = $();
                     
                     const state = options( {
                         [ adminID ]: 'n/a'

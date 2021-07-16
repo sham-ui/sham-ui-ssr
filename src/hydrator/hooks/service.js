@@ -7,6 +7,7 @@ export default class ServerSideHooks {
         this.original = originalService;
         this.storage = storage;
         this._promises = [];
+        this.idCounter = 0;
     }
 
     create( component ) {
@@ -36,10 +37,16 @@ export default class ServerSideHooks {
         // Ignore rehydrate on hydrating
     }
 
-    resolveID() {
-
-        // Just proxy `resolveID` call to original service
-        return this.original.resolveID.apply( this.original, arguments );
+    /**
+     * Hook for resolve ID for component
+     * @param {Component} component
+     */
+    resolveID( component ) {
+        const ID = component.options.ID;
+        return 'string' === typeof ID ?
+            ID :
+            ( this.idCounter++ ).toString()
+        ;
     }
 
     /**
