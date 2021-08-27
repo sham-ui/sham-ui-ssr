@@ -174,7 +174,7 @@ it( 'should render empty attributes', async() => {
     const meta = await ssrAndRehydrate(
         compile`<input type="checkbox" value="" checked>`
     );
-    expect( meta.html ).toBe( '<input type="checkbox" value="" checked=true>' );
+    expect( meta.html ).toBe( '<input type="checkbox" value="" checked>' );
     expect( meta.component.nodes[ 0 ].checked ).toEqual( true );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
@@ -274,5 +274,23 @@ it( 'should support style attribute', async() => {
         compile`<div \\style="background-color: red">DANGER</div>`
     );
     expect( meta.html ).toBe( '<div style="background-color: red">DANGER</div>' );
+    expect( meta.toJSON() ).toMatchSnapshot();
+} );
+
+it( 'should support render checked == true attr', async() => {
+    expect.assertions( 2 );
+    const meta = await ssrAndRehydrate(
+        compile`<input type="checkbox" checked={{true}}/>`
+    );
+    expect( meta.html ).toBe( '<input type="checkbox" checked>' );
+    expect( meta.toJSON() ).toMatchSnapshot();
+} );
+
+it( 'should support don\'t render checked == false attr', async() => {
+    expect.assertions( 2 );
+    const meta = await ssrAndRehydrate(
+        compile`<input type="checkbox" checked={{false}}/>`
+    );
+    expect( meta.html ).toBe( '<input type="checkbox">' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );

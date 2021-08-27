@@ -250,7 +250,7 @@ Object {
         ]
     }
 }",
-  "html": "<input type=\\"checkbox\\" value=\\"\\" checked=true>",
+  "html": "<input type=\\"checkbox\\" value=\\"\\" checked>",
 }
 `;
 
@@ -294,6 +294,19 @@ Object {
     }
 }",
   "html": "<div class=\\"first second\\"></div>",
+}
+`;
+
+exports[`should support don't render checked == false attr 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<input type=\\"checkbox\\">",
 }
 `;
 
@@ -397,6 +410,19 @@ array
 <!--4-->,
 <!--5-->{\\"a\\":1,\\"b\\":2}
 ",
+}
+`;
+
+exports[`should support render checked == true attr 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<input type=\\"checkbox\\" checked>",
 }
 `;
 

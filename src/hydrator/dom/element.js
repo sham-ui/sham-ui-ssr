@@ -61,7 +61,9 @@ export default class Element {
         let result = `<${this.tagName}`;
         for ( let attrName in this.attributes ) {
             if ( booleanAttributes.includes( attrName ) ) {
-                result += ` ${attrName}=${this.attributes[ attrName ]}`;
+                if ( this.attributes[ attrName ] ) {
+                    result += ` ${attrName}`;
+                }
             } else {
                 result += ` ${attrName}="${this.attributes[ attrName ]}"`;
             }

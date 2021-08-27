@@ -1,3 +1,7 @@
+## 0.0.4
+* Fix SSR boolean attributes
+* Fix deprecation message
+
 ## 0.0.3 
 * Update dependencies
 
