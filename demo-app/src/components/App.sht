@@ -1,4 +1,3 @@
-{% import Custom from './Custom.sfc' %}
 {% import Dummy from './Dummy.sfc' %}
 
 <main>
@@ -7,9 +6,5 @@
         {{text}}
     </pre>
 
-    <Custom/>
-    {% if true %}
-        <Dummy html="tes"/>
-    {% endif %}
-
+    <Dummy/>
 </main>

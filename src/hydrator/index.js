@@ -15,16 +15,12 @@ export function setup( DI ) {
     // Override default hooks service
     DI.bind(
         HOOKS_DI_KEY,
-
-        // Pass default hooks service for proxy some methods (rehydrate & resolveID)
-        new ServerSideHooks( DI.resolve( HOOKS_DI_KEY ), storage )
+        new ServerSideHooks( storage )
     );
 
     // Override default dom service
     DI.bind(
         DOM_DI_KEY,
-
-        // Don't pass default dom service, because ServerSideDOM full override it
         new ServerSideDOM( storage )
     );
 

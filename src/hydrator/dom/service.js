@@ -9,7 +9,6 @@ import CommenNode from './comment';
 export default class ServerSideDOM {
     constructor( storage ) {
         this.storage = storage;
-        this.parentElement = storage.root;
     }
 
     /**

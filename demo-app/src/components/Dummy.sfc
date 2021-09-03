@@ -1,24 +1,33 @@
 <template>
-    <div>
-        {% unsafe html %}
-    </div>
-    <button :onclick={{this$.change}}>Change</button>
+    {% import Page from './Page.sfc' %}
+
+    <Page dataLoaded={{dataLoaded}}>
+        Content!
+    </Page>
 </template>
 
 
 <script>
-    function Dummy( options, update ) {
-        const visible = $();
-        const html = $();
+    function Dummy( options, update, didMount ) {
+        const dataLoaded = $();
 
-        options( {
-            [ visible ]: true,
-            [ html ]: ''
+        const state = options( {
+            [ dataLoaded ]: false
         } );
 
-        this$.change = () => update( {
-            [ html ]: '<a href="javascript:XSS;">Link<' + '/a>'
+        didMount( () => {
+            if ( !state[ dataLoaded ] ) {
+                this.hydrateReady = loadData();
+            }
         } );
+
+        const loadData = () => new Promise( resolve => {
+            setTimeout( resolve );
+        } ).then(
+            () => update( {
+                [ dataLoaded ]: true
+            } )
+        );
     }
 
     export default Component( Template, Dummy );

@@ -43,7 +43,6 @@ Object {
             "filters": Object {},
             "hooks": Object {
               "create": [Function],
-              "hydrate": [Function],
               "rehydrate": [Function],
               "resolveID": [Function],
             },

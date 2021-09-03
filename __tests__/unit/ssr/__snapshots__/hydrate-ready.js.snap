@@ -3,11 +3,6 @@
 exports[`defer hydrating with hydrateReady 1`] = `
 Object {
   "data": "{
-    \\"1\\": {
-        \\"C\\": [
-            \\"2\\"
-        ]
-    },
     \\"3\\": {
         \\"N\\": [
             0
@@ -35,11 +30,6 @@ Object {
 exports[`defer hydrating with hydrateReady with element wrapper 1`] = `
 Object {
   "data": "{
-    \\"1\\": {
-        \\"C\\": [
-            \\"2\\"
-        ]
-    },
     \\"3\\": {
         \\"N\\": [
             1,

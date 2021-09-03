@@ -3,8 +3,7 @@
  * @ignore
  */
 export default class ServerSideHooks {
-    constructor( originalService, storage ) {
-        this.original = originalService;
+    constructor( storage ) {
         this.storage = storage;
         this._promises = [];
         this.idCounter = 0;
@@ -17,18 +16,37 @@ export default class ServerSideHooks {
     }
 
     /**
-     * Hook for mark component as ready for hydrating
+     * Hook for mark root component as ready for hydrating
      * @param {sham-ui#Component} component
      */
     hydrate( component ) {
         this._promises.push(
+            this.hydrateComponent( component )
+        );
+    }
 
-            // Property hydrateReady is undefined by default, but component can set it as promise
-            // for defer hydrating (waiting finish async operation for example)
-            Promise.resolve( component.hydrateReady )
+    /**
+     * Hydrate
+     * @param {sham-ui#Component} component
+     * @return {Promise<>}
+     * @private
+     */
+    hydrateComponent( component ) {
 
-                // Override original promise result with `component`
-                .then( () => component )
+        // Property hydrateReady is undefined by default, but component can set it as promise
+        // for defer hydrating (waiting finish async operation for example)
+        return Promise.resolve( component.hydrateReady ).then(
+            () => Promise.all(
+
+                // Hydrate all nested component after current ready
+                component.nested.map(
+                    nested => this.hydrateComponent( nested )
+                )
+            )
+        ).then(
+
+            // Override original promise result with `component`
+            () => component
         );
     }
 
@@ -39,7 +57,7 @@ export default class ServerSideHooks {
 
     /**
      * Hook for resolve ID for component
-     * @param {Component} component
+     * @param {sham-ui#Component} component
      */
     resolveID( component ) {
         const ID = component.options.ID;
@@ -55,23 +73,35 @@ export default class ServerSideHooks {
      * @return {Promise}
      * @private
      */
-    _waitComponentHydrating( promise ) {
+    _waitRootComponentHydrating( promise ) {
         return promise.then(
-            ::this._componentReadyForHydrating
+            ::this._rootComponentReadyForHydrating
         );
     }
 
     /**
-     * Process one component hydrationg
-     * @param component
+     * Process one root component hydrationg
+     * @param {sham-ui#Component} component
      * @return {Promise}
      * @private
      */
-    _componentReadyForHydrating( component ) {
-        this.storage.process( component );
+    _rootComponentReadyForHydrating( component ) {
+        this._processComponent( component );
 
         // After resolve current promise, process next (its's async recursion analog)
         return this.hydrating();
+    }
+
+    /**
+     * Process component & all nested
+     * @param {sham-ui#Component} component
+     * @private
+     */
+    _processComponent( component ) {
+        this.storage.process( component );
+        component.nested.forEach(
+            nested => this._processComponent( nested )
+        );
     }
 
     /**
@@ -82,7 +112,7 @@ export default class ServerSideHooks {
         return this._promises.length > 0 ?
 
             // Has unresolved promise, process:
-            this._waitComponentHydrating( this._promises.shift() ) :
+            this._waitRootComponentHydrating( this._promises.shift() ) :
 
             // All promise resolved
             Promise.resolve(

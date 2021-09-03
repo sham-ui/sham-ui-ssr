@@ -1,3 +1,8 @@
+## 0.0.5
+* Remove unused code
+* Fix deferred hydration
+* Update dependencies
+
 ## 0.0.4
 * Fix SSR boolean attributes
 * Fix deprecation message

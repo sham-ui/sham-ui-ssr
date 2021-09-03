@@ -1,0 +1,18 @@
+<template>
+    {% if dataLoaded %}
+        <div class="page-body">
+            {% defblock 'default' %}
+        </div>
+    {% endif %}
+</template>
+
+
+<script>
+    function Dummy( options ) {
+        options( {
+            [ $.dataLoaded ]: true
+        } );
+    }
+
+    export default Component( Template, Dummy );
+</script>
