@@ -14,6 +14,7 @@ export default class Element {
         this.attributes = {};
         this.childNodes = [];
         this.innerHTML = '';
+
         plainAttributes.forEach( attr => {
             Object.defineProperty( this, attr, {
                 get() {
@@ -24,6 +25,31 @@ export default class Element {
                 }
             } );
         } );
+
+        this._classList = [];
+        const classList = this._classList;
+
+        this.classList = {
+            add( className ) {
+                if ( !classList.includes( className ) ) {
+                    classList.push( className );
+                }
+            },
+            remove( className ) {
+                const index = classList.indexOf( className );
+                if ( index !== -1 ) {
+                    classList.splice( index, 1 );
+                }
+            },
+            toggle( className ) {
+                const index = classList.indexOf( className );
+                if ( index === -1 ) {
+                    classList.push( className );
+                } else {
+                    classList.splice( index, 1 );
+                }
+            }
+        };
     }
 
     appendChild( node ) {
@@ -44,7 +70,16 @@ export default class Element {
     }
 
     setAttribute( attrName, value ) {
-        this.attributes[ attrName ] = value;
+        if ( 'class' === attrName ) {
+            value
+                .split( ' ' )
+                .filter( x => x.length > 0  )
+                .forEach(
+                    className => this.classList.add( className )
+                );
+        } else {
+            this.attributes[ attrName ] = value;
+        }
     }
 
     addEventListener() {}
@@ -67,6 +102,9 @@ export default class Element {
             } else {
                 result += ` ${attrName}="${this.attributes[ attrName ]}"`;
             }
+        }
+        if ( this._classList.length > 0 ) {
+            result += ` class="${this._classList.join( ' ' )}"`;
         }
         result += '>';
 

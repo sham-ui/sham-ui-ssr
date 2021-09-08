@@ -1,3 +1,6 @@
+## 0.0.6
+* Add support `classList` for element
+
 ## 0.0.5
 * Remove unused code
 * Fix deferred hydration

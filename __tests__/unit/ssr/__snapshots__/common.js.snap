@@ -194,7 +194,7 @@ Object {
         ]
     }
 }",
-  "html": "<div class=\\"foo bar baz\\"></div>",
+  "html": "<div class=\\"foo baz bar\\"></div>",
 }
 `;
 

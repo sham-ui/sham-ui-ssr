@@ -43,7 +43,7 @@ it( 'should properly work with text constants in attributes', async() => {
             bar: 'bar'
         }
     );
-    expect( meta.html ).toBe( '<div class="foo bar baz"></div>' );
+    expect( meta.html ).toBe( '<div class="foo baz bar"></div>' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 

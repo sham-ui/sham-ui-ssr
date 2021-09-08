@@ -23,8 +23,14 @@ Object {
               "container": Root {
                 "childNodes": Array [
                   Element {
+                    "_classList": Array [],
                     "attributes": Object {},
                     "childNodes": Array [],
+                    "classList": Object {
+                      "add": [Function],
+                      "remove": [Function],
+                      "toggle": [Function],
+                    },
                     "component": [Circular],
                     "innerHTML": "",
                     "parentNode": [Circular],
@@ -42,8 +48,14 @@ Object {
                 "container": Root {
                   "childNodes": Array [
                     Element {
+                      "_classList": Array [],
                       "attributes": Object {},
                       "childNodes": Array [],
+                      "classList": Object {
+                        "add": [Function],
+                        "remove": [Function],
+                        "toggle": [Function],
+                      },
                       "component": [Circular],
                       "innerHTML": "",
                       "parentNode": [Circular],
@@ -72,8 +84,14 @@ Object {
               "nested": Array [],
               "nodes": Array [
                 Element {
+                  "_classList": Array [],
                   "attributes": Object {},
                   "childNodes": Array [],
+                  "classList": Object {
+                    "add": [Function],
+                    "remove": [Function],
+                    "toggle": [Function],
+                  },
                   "component": [Circular],
                   "innerHTML": "",
                   "parentNode": Root {
@@ -99,8 +117,14 @@ Object {
                 "container": Root {
                   "childNodes": Array [
                     Element {
+                      "_classList": Array [],
                       "attributes": Object {},
                       "childNodes": Array [],
+                      "classList": Object {
+                        "add": [Function],
+                        "remove": [Function],
+                        "toggle": [Function],
+                      },
                       "component": [Circular],
                       "innerHTML": "",
                       "parentNode": [Circular],
