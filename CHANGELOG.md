@@ -1,3 +1,6 @@
+## 0.0.7
+* Fix hydrate href attribute from `sham-ui-router` `hrefto` directive
+
 ## 0.0.6
 * Add support `classList` for element
 

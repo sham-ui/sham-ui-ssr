@@ -2,7 +2,7 @@ import TextNode from './text';
 
 const singleElements = [ 'input', 'hr', 'br' ];
 const booleanAttributes = [ 'checked', 'selected' ];
-const plainAttributes = [ 'id', 'value', 'checked', 'selected' ];
+const plainAttributes = [ 'id', 'value', 'checked', 'selected', 'href' ];
 
 /**
  * @inner
