@@ -1,3 +1,6 @@
+## 0.0.8
+* Stable
+
 ## 0.0.7
 * Fix hydrate href attribute from `sham-ui-router` `hrefto` directive
 
