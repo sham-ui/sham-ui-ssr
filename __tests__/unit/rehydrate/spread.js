@@ -139,7 +139,10 @@ it( 'should work for custom tags with constant attributes values', async() => {
             <div>
                 <SpreadCustom {{...attr}} foo="foo"/>
             </div>
-        `
+        `,
+        {
+            attr: {}
+        }
     );
     expect( meta.html ).toBe( '<div><i>foo</i><i> </i><i> </i></div>' );
 
@@ -159,7 +162,7 @@ it( 'should work for custom tags with constant attributes values', async() => {
         }
     } );
     expect( meta.component.container.innerHTML ).toBe(
-        '<div><i>over foo</i><i>boo</i><i>bar</i></div>'
+        '<div><i>foo</i><i>boo</i><i>bar</i></div>'
     );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
@@ -171,9 +174,12 @@ it( 'should work for custom tags with attributes with values', async() => {
             <div>
                 <SpreadCustom {{...attr}} foo="{{ foo }}"/>
             </div>
-        `
+        `,
+        {
+            attr: {}
+        }
     );
-    expect( meta.html ).toBe( '<div></div>' );
+    expect( meta.html ).toBe( '<div><i> </i><i> </i><i> </i></div>' );
 
     meta.component.update( {
         attr: {
@@ -181,7 +187,7 @@ it( 'should work for custom tags with attributes with values', async() => {
             bar: 'bar'
         }
     } );
-    expect( meta.component.container.innerHTML ).toBe( '<div><i></i><i>boo</i><i>bar</i></div>' );
+    expect( meta.component.container.innerHTML ).toBe( '<div><i> </i><i>boo</i><i>bar</i></div>' );
 
     meta.component.update( {
         foo: 'foo'

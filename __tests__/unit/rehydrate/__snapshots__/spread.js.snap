@@ -116,7 +116,7 @@ Object {
   },
   "html": "
 <div>
-  <i>over foo</i>
+  <i>foo</i>
   <i>boo</i>
   <i>bar</i>
 </div>

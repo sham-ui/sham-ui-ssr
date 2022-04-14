@@ -205,13 +205,41 @@ Object {
 exports[`should work for custom tags with attributes with values 1`] = `
 Object {
   "data": "{
+    \\"1\\": {
+        \\"N\\": [
+            0,
+            [
+                0,
+                0
+            ],
+            1,
+            [
+                1,
+                0
+            ],
+            2,
+            [
+                2,
+                0
+            ]
+        ]
+    },
     \\"component\\": {
+        \\"C\\": [
+            \\"1\\"
+        ],
         \\"N\\": [
             0
         ]
     }
 }",
-  "html": "<div></div>",
+  "html": "
+<div>
+  <i> </i>
+  <i> </i>
+  <i> </i>
+</div>
+",
 }
 `;
 

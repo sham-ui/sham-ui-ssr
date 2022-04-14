@@ -108,7 +108,10 @@ it( 'should work for custom tags with constant attributes values', async() => {
             <div>
                 <SpreadCustom {{...attr}} foo="foo"/>
             </div>
-        `
+        `,
+        {
+            attr: {}
+        }
     );
     expect( meta.html ).toBe( '<div><i>foo</i><i> </i><i> </i></div>' );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -121,9 +124,12 @@ it( 'should work for custom tags with attributes with values', async() => {
             <div>
                 <SpreadCustom {{...attr}} foo="{{ foo }}"/>
             </div>
-        `
+        `,
+        {
+            attr: {}
+        }
     );
-    expect( meta.html ).toBe( '<div></div>' );
+    expect( meta.html ).toBe( '<div><i> </i><i> </i><i> </i></div>' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
