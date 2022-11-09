@@ -3,7 +3,6 @@
 exports[`should correct resolve owner 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "text": [Function],
   },
   "html": "
@@ -18,7 +17,6 @@ Object {
 exports[`should remove block in if 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "data": "foo",
     "visible": true,
   },
@@ -36,7 +34,6 @@ Object {
 exports[`should remove block in if 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "data": "foz",
     "visible": false,
   },
@@ -50,7 +47,6 @@ Object {
 exports[`should remove block in if 3`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "data": "foo",
     "visible": true,
   },
@@ -66,9 +62,7 @@ Object {
 
 exports[`should work useblock if was update from block component 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <!--0-->
 <!--0-->
@@ -78,9 +72,7 @@ Object {
 
 exports[`should work with {% block "default" %} 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <div>
   <a> Text for content
@@ -94,7 +86,6 @@ Object {
 exports[`should work with component arguments 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "url": "http://example.com",
   },
   "html": "
@@ -112,7 +103,6 @@ Object {
 exports[`should work with component arguments 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "url": "http://foo.example.com",
   },
   "html": "
@@ -130,7 +120,6 @@ Object {
 exports[`should work with component default block 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "url": "http://example.com",
   },
   "html": "
@@ -147,7 +136,6 @@ Object {
 exports[`should work with component default block 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "url": "http://foo.example.com",
   },
   "html": "
@@ -164,7 +152,6 @@ Object {
 exports[`should work with defblock nested in useblock 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "loaded": true,
     "red": true,
     "visible": true,
@@ -187,7 +174,6 @@ Object {
 exports[`should work with for 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "links": Array [
       "http://foo.example.com",
       "http://bar.example.com",
@@ -226,7 +212,6 @@ Object {
 exports[`should work with for 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "links": Array [
       "http://baz.example.com",
       "http://bar.example.com",
@@ -264,9 +249,7 @@ Object {
 
 exports[`should work with two named blocks 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <div>
   <div>
@@ -285,7 +268,6 @@ Object {
 exports[`should work with two nested if 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "big": false,
     "red": false,
   },
@@ -299,7 +281,6 @@ Object {
 exports[`should work with two nested if 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "big": true,
     "red": false,
   },
@@ -314,7 +295,6 @@ Object {
 exports[`should work with two nested if 3`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "big": true,
     "red": true,
   },

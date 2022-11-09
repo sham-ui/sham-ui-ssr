@@ -26,7 +26,7 @@ it( 'should insert variables as HTML', async() => {
     expect( meta.html ).toBe( '<div></div>' );
 
     meta.component.update( { html: '<a href="javascript:XSS;">Link</a>' } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div><a href="javascript:XSS;">Link</a></div>'
     );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -47,15 +47,15 @@ it( 'should remove old DOM nodes and insert new', async() => {
     expect( meta.html ).toBe( '<div><div>foo</div><br></div>' );
 
     meta.component.update( { html: '<input type="datetime"><hr><div>baz</div>' } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div><input type="datetime"><hr><div>baz</div></div>'
     );
 
     meta.component.update( { html: '' } );
-    expect( meta.component.container.innerHTML ).toBe( '<div></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div></div>' );
 
     meta.component.update( { html: '<!-- comment -->' } );
-    expect( meta.component.container.innerHTML ).toBe( '<div><!-- comment --></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div><!-- comment --></div>' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
@@ -77,7 +77,7 @@ it( 'should insert unsafe with placeholders', async() => {
     expect( meta.html ).toBe( '<div><br></div><div><hr></div>' );
 
     meta.component.update( { html: '<br><!-- comment --><link href="http://ShamUIView.js.org">' } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
 
         // eslint-disable-next-line max-len
         '<div><br></div><div><br><!-- comment --><link href="http://ShamUIView.js.org"></div>'
@@ -104,10 +104,10 @@ it( 'if with unsafe tag', async() => {
     expect( meta.html ).toBe( '<div><div><i>unsafe</i></div></div>' );
 
     meta.component.update( { test: false } );
-    expect( meta.component.container.innerHTML ).toBe( '<div></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div></div>' );
 
     meta.component.update( { test: true } );
-    expect( meta.component.container.innerHTML ).toBe( '<div><div><i>unsafe</i></div></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div><div><i>unsafe</i></div></div>' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 

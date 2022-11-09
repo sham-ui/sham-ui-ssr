@@ -43,16 +43,18 @@ it( 'function bind correctly work with directives', async() => {
         </script>
         `,
         {
+            handler
+        },
+        {
             directives: {
                 onclick: OnClickEventListener
-            },
-            handler
+            }
         }
     );
     expect( meta.html ).toBe(
         '<button>click me</button>'
     );
-    meta.component.container.querySelector( 'button' ).click();
+    meta.ctx.container.querySelector( 'button' ).click();
 
     expect( handler ).toHaveBeenCalledTimes( 1 );
     expect( handler ).toHaveBeenCalledWith( meta.component, 'click' );

@@ -40,12 +40,12 @@ it( 'should render arrays', async() => {
     );
 
     meta.component.update( { list: [ 1, 3 ] } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<ul><li>0<!--0-->:<!--1-->1</li><li>1<!--0-->:<!--1-->3</li></ul>'
     );
 
     meta.component.update( { list: [ 'a', 'b', 'c', 'd' ] } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<ul><li>0<!--0-->:<!--1-->a</li><li>1<!--0-->:<!--1-->b</li><li>2:c</li><li>3:d</li></ul>'
     );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -102,7 +102,7 @@ it( 'should iterate over objects', async() => {
             d: 4
         }
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         '<div>a<!--0-->: <!--1-->1<!--2-->; <!--3-->c<!--4-->: <!--5-->3<!--6-->; <!--7-->d<!--8-->: <!--9-->4<!--10-->; </div>'
     );
@@ -172,7 +172,7 @@ it( 'should delete old items from childred map with custom tag', async() => {
             }
         ]
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div><ul><li>1:a</li><!--0--><li>3:c</li><!--0--></ul></div>'
     );
     expect( meta.toJSON() ).toMatchSnapshot();

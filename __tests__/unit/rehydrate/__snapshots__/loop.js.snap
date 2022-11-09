@@ -3,7 +3,6 @@
 exports[`should delete old items from childred map with custom tag 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "list": Array [
       Object {
         "id": 1,
@@ -31,7 +30,6 @@ Object {
 exports[`should iterate over arrays without options 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "obj": Array [
       Object {
         "name": "a",
@@ -59,7 +57,6 @@ Object {
 exports[`should iterate over objects 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "obj": Object {
       "a": 1,
       "c": 3,
@@ -87,7 +84,6 @@ Object {
 exports[`should not expose local variables 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "as": Array [
       "a",
       "b",
@@ -116,7 +112,6 @@ Object {
 exports[`should render arrays 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "list": Array [
       "a",
       "b",
@@ -144,7 +139,6 @@ Object {
 exports[`should render arrays with externals 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "ext": ".js",
     "list": Array [
       1,

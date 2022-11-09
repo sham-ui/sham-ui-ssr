@@ -60,7 +60,7 @@ export default class ServerSideHooks {
      * @param {sham-ui#Component} component
      */
     resolveID( component ) {
-        const ID = component.options.ID;
+        const ID = component.ctx.ID;
         return 'string' === typeof ID ?
             ID :
             ( this.idCounter++ ).toString()

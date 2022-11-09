@@ -1,4 +1,4 @@
-import { start, createDI } from 'sham-ui';
+import { start, createDI, createRootContext } from 'sham-ui';
 import setupUnsafe from 'sham-ui-unsafe';
 import pretty from 'pretty';
 import { setup as setupHydrator, hydrate } from '../../src/hydrator/index';
@@ -82,11 +82,16 @@ function prettyHTML( html ) {
  *
  * @param {Class<Component>} componentClass Component class for rendering
  * @param {Object} [componentOptions={}] Options
+ * @param {Object} [context={}] Extra root context parameters
  * @return {SSRRenderResult}
  */
-export async function ssr( componentClass, componentOptions = {} ) {
-    const DI = 'DI' in componentOptions ?
-        componentOptions.DI :
+export async function ssr(
+    componentClass,
+    componentOptions = {},
+    context = {}
+) {
+    const DI = 'DI' in context ?
+        context.DI :
         createDI()
     ;
 
@@ -101,19 +106,21 @@ export async function ssr( componentClass, componentOptions = {} ) {
     // Override resolveID with dummy implementation
     let idCounter = 1;
     DI.resolve( HOOKS_DI_KEY ).resolveID = ( component ) => {
-        const ID = component.options.ID;
+        const ID = component.ctx.ID;
         return 'string' === typeof ID ?
             ID :
             ( idCounter++ ).toString()
         ;
     };
 
-    const component = new componentClass( {
+    const ctx = createRootContext( {
         DI,
         ID: DEFAULT_ID,
         container: root,
-        ...componentOptions
+        ...context
     } );
+
+    const component = new componentClass( ctx, componentOptions );
 
     // Render component
     start( DI );
@@ -132,6 +139,7 @@ export async function ssr( componentClass, componentOptions = {} ) {
 
     return {
         DI,
+        ctx,
         component,
         html,
         data,
@@ -151,17 +159,10 @@ export async function ssr( componentClass, componentOptions = {} ) {
  * @return {Object}
  */
 function prepareOptions( options ) {
-    const result = {
+    return {
         ...Object.getPrototypeOf( options ),
         ...options
     };
-    if ( result.container ) {
-        delete result.container;
-    }
-    if ( result.DI ) {
-        delete result.DI;
-    }
-    return result;
 }
 
 
@@ -173,13 +174,15 @@ function prepareOptions( options ) {
 
 /**
  * @inner
+ * @param {Object} ctx
  * @param {Component} component
  * @return {RenderResultSnapshot}
  */
-function toJSON( component ) {
+function toJSON( ctx, component ) {
     let html = null;
-    if ( component.container !== undefined ) {
-        html = pretty( component.container.innerHTML, {
+    const container = ctx.container;
+    if ( container !== undefined ) {
+        html = pretty( container.innerHTML, {
             inline: [ 'code', 'pre', 'em', 'strong', 'span' ]
         } );
         if ( html.indexOf( '\n' ) !== -1 ) {
@@ -223,11 +226,16 @@ function toJSON( component ) {
  *
  * @param {Class<Component>} componentClass Component class for rendering
  * @param {Object} [componentOptions={}] Options
+ * @param {Object} [context={}] Extra root context parameters
  * @return {RenderResult}
  */
-export async function ssrAndRehydrate( componentClass, componentOptions = {} ) {
-    let DI = 'DI' in componentOptions ?
-        componentOptions.DI :
+export async function ssrAndRehydrate(
+    componentClass,
+    componentOptions = {},
+    context = {}
+) {
+    let DI = 'DI' in context ?
+        context.DI :
         createDI()
     ;
 
@@ -238,12 +246,14 @@ export async function ssrAndRehydrate( componentClass, componentOptions = {} ) {
 
     // Setup hydrator services & create storage
     const root = setupHydrator( DI );
-    new componentClass( {
+    let ctx = createRootContext( {
         DI,
         ID: DEFAULT_ID,
         container: root,
-        ...componentOptions
+        ...context
     } );
+
+    new componentClass( ctx, componentOptions );
 
     // Render component
     start( DI );
@@ -260,34 +270,35 @@ export async function ssrAndRehydrate( componentClass, componentOptions = {} ) {
     // Clear store (on browser store is empty on load page)
     DI.resolve( 'sham-ui:store' ).byId.clear();
 
-    DI = 'DI' in componentOptions ?
-        componentOptions.DI :
+    DI = 'DI' in context ?
+        context.DI :
         createDI()
     ;
 
-    const options = {
+    ctx = createRootContext( {
         DI,
         ID: DEFAULT_ID,
         container: document.querySelector( DEFAULT_SELECTOR ),
-        ...componentOptions
-    };
+        ...context
+    } );
 
     // Set ssr html string to container
-    options.container.innerHTML = html;
+    ctx.container.innerHTML = html;
 
     const disableRehydrating = setupRehydrator( DI, JSON.parse( data ) );
-    const component = new componentClass( options );
+    const component = new componentClass( ctx, { ...componentOptions } );
     start( DI );
     disableRehydrating();
     setupUnsafe( DI );
 
     return {
         DI,
+        ctx,
         component,
         html,
         data: JSON.stringify( JSON.parse( data ), null, 4 ),
         toJSON() {
-            return toJSON( component );
+            return toJSON( ctx, component );
         }
     };
 }

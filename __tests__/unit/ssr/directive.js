@@ -59,6 +59,7 @@ it( 'should be trimmed from html', async() =>{
             <div :show={{ visible }}/>
             <div :content="come {{ text }}"/>
         `,
+        {},
         {
             directives
         }
@@ -74,13 +75,15 @@ it( 'methods bind, update, unbind should be called', async() => {
     directive.prototype.bind = jest.fn();
     directive.prototype.update = jest.fn();
 
-    const directives = { directive };
-
     const meta = await ssr(
         compile`<div :directive={{ value }}/>`,
         {
-            directives,
             value: true
+        },
+        {
+            directives: {
+                directive
+            }
         }
     );
     expect( directive ).toHaveBeenCalledWith( meta.component );
@@ -106,10 +109,12 @@ it( 'ref directive', async() => {
             </div>
         `,
         {
+            test: true
+        },
+        {
             directives: {
                 ref: window.Ref
-            },
-            test: true
+            }
         }
     );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -131,10 +136,12 @@ it( 'ref directive with custom tag', async() => {
             </div>
         `,
         {
+            test: true
+        },
+        {
             directives: {
                 ref: window.Ref
-            },
-            test: true
+            }
         }
     );
     expect( meta.html ).toBe(

@@ -3,7 +3,6 @@
 exports[`should override default attributes 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "attr": Object {
       "id": "boo",
     },
@@ -15,7 +14,6 @@ Object {
 exports[`should override variables attributes 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "attr": Object {},
     "id": "bar",
   },
@@ -26,7 +24,6 @@ Object {
 exports[`should render arrays 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "list": Array [
       "a",
       "b",
@@ -54,7 +51,6 @@ Object {
 exports[`should work for custom tags 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "attr": Object {
       "boo": "Boo-Ya",
     },
@@ -72,7 +68,6 @@ Object {
 exports[`should work for custom tags proxy __data__ 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "bar": "bar",
     "boo": "Boo-Ya",
     "foo": "foo",
@@ -90,7 +85,6 @@ Object {
 exports[`should work for custom tags with attributes with values 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "attr": Object {
       "foo": "over foo",
     },
@@ -109,7 +103,6 @@ Object {
 exports[`should work for custom tags with constant attributes values 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "attr": Object {
       "foo": "over foo",
     },
@@ -127,7 +120,6 @@ Object {
 exports[`should work for html elements 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "attr": Object {
       "class": "foo",
       "data-attr": "data",

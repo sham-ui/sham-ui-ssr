@@ -108,7 +108,7 @@ it( 'should work with component arguments', async() => {
     meta.component.update( {
         url: 'http://foo.example.com'
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         '<div><a href="http://foo.example.com"> Text for <!--0-->http://foo.example.com<!--1--> <!--0--></a></div>'
     );
@@ -138,7 +138,7 @@ it( 'should work with component default block', async() => {
     meta.component.update( {
         url: 'http://foo.example.com'
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         '<div><a href="http://foo.example.com"> Text for <!--0-->http://foo.example.com<!--0--></a></div>'
     );
@@ -175,14 +175,14 @@ it( 'should remove block in if', async() => {
         visible: false,
         data: 'foz'
     } );
-    expect( meta.component.container.innerHTML ).toBe( '<!--0--><!--0-->' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<!--0--><!--0-->' );
     expect( meta.toJSON() ).toMatchSnapshot();
 
     meta.component.update( {
         visible: true,
         data: 'foo'
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div class="content"> Text content for foo<!--0--></div><!--0--><!--0-->'
     );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -215,13 +215,13 @@ it( 'should work with two nested if', async() => {
     meta.component.update( {
         big: true
     } );
-    expect( meta.component.container.innerHTML ).toBe( '<!--0--><!--0--><!--0-->' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<!--0--><!--0--><!--0-->' );
     expect( meta.toJSON() ).toMatchSnapshot();
 
     meta.component.update( {
         red: true
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         '<button class="big red">This button big=true, red=true big &amp;&amp; red <!--0--></button><!--0--><!--0--><!--0-->'
     );
@@ -270,7 +270,7 @@ it( 'should work with defblock nested in useblock', async() => {
     meta.component.update( {
         loaded: true
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         '<!--0--><!--0--><!--0--><!--0--><!--0--><!--0-->'
     );
@@ -278,14 +278,14 @@ it( 'should work with defblock nested in useblock', async() => {
     meta.component.update( {
         visible: true
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         '<!--0--><!--0--><!--0--><!--0--><!--0--><!--0--><!--0--><!--0-->'
     );
     meta.component.update( {
         red: true
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         ' red &amp;&amp; loaded &amp; visible <!--0--><!--0--><!--0--><!--0--><!--0--><!--0--><!--0--><!--0--><!--0-->'
     );
@@ -336,7 +336,7 @@ it( 'should work with for', async() => {
             'http://foo.example.com'
         ]
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<ul>' +
         // eslint-disable-next-line max-len
         '<li><a href="http://baz.example.com">Text for <!--0-->http://baz.example.com<!--0--></a></li>' +
@@ -362,16 +362,16 @@ it( 'should work useblock if was update from block component', async() => {
 
         }
     );
-    expect( meta.component.container.textContent.trim() ).toBe( '' );
+    expect( meta.ctx.container.textContent.trim() ).toBe( '' );
 
     const displayContent = Array.from( meta.DI.resolve( 'sham-ui:store' ).byId.values() ).find(
         x => x instanceof window.DisplayContent
     );
     displayContent.update( { condition: true } );
-    expect( meta.component.container.textContent.trim() ).toBe( 'Content' );
+    expect( meta.ctx.container.textContent.trim() ).toBe( 'Content' );
 
     displayContent.update( { condition: false } );
-    expect( meta.component.container.textContent.trim() ).toBe( '' );
+    expect( meta.ctx.container.textContent.trim() ).toBe( '' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
@@ -397,7 +397,7 @@ it( 'should correct resolve owner', async() => {
             </script>
         `
     );
-    expect( meta.component.container.textContent.trim() ).toBe( 'Text for content' );
+    expect( meta.ctx.container.textContent.trim() ).toBe( 'Text for content' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 

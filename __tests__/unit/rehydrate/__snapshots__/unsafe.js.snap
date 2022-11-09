@@ -3,7 +3,6 @@
 exports[`if with unsafe tag 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "test": true,
   },
   "html": "
@@ -18,9 +17,7 @@ Object {
 
 exports[`should insert constants as HTML 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <div>
   <br>
@@ -32,7 +29,6 @@ Object {
 exports[`should insert unsafe with placeholders 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "html": "<br><!-- comment --><link href=\\"http://ShamUIView.js.org\\">",
   },
   "html": "
@@ -50,7 +46,6 @@ Object {
 exports[`should insert variables as HTML 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "html": "<a href=\\"javascript:XSS;\\">Link</a>",
   },
   "html": "
@@ -64,7 +59,6 @@ Object {
 exports[`should remove old DOM nodes and insert new 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "html": "<!-- comment -->",
   },
   "html": "
@@ -78,7 +72,6 @@ Object {
 exports[`should work with first level non-elements 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "cond1": true,
     "loop1": Array [
       1,

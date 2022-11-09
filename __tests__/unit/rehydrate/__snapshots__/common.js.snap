@@ -2,18 +2,14 @@
 
 exports[`should ignore all html comments 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "<span>Moon</span>",
 }
 `;
 
 exports[`should ignore script tag content 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <script>
   var result = 2 < 5;
@@ -25,7 +21,6 @@ Object {
 exports[`should insert variable in attributes 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "value": "Value",
   },
   "html": "<input type=\\"text\\" value=\\"Value\\">",
@@ -35,7 +30,6 @@ Object {
 exports[`should optimize "if"/"for" tag, if it is only child 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "a": true,
     "b": Array [
       1,
@@ -52,9 +46,7 @@ Object {
 
 exports[`should place placeholders for multiply "if" and "for" tags 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <div>
   <!--0-->
@@ -66,9 +58,7 @@ Object {
 
 exports[`should place placeholders for multiply "if" tags 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <div>
   <!--0-->
@@ -81,11 +71,6 @@ Object {
 exports[`should properly for with filters 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
-    "filters": Object {
-      "append": [Function],
-      "upperCase": [Function],
-    },
     "text": "upper_",
   },
   "html": "<p>UPPER_CASE</p>",
@@ -94,9 +79,7 @@ Object {
 
 exports[`should properly work with more then one node on topmost level 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <p>first</p>
 <p>second</p>
@@ -107,7 +90,6 @@ Object {
 exports[`should properly work with text constants in attributes 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "bar": "bar",
   },
   "html": "<div class=\\"foo bar baz\\"></div>",
@@ -117,7 +99,6 @@ Object {
 exports[`should properly work with text constants in text nodes 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "bar": "bar",
   },
   "html": "
@@ -132,7 +113,6 @@ Object {
 exports[`should render attributes without quotes 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "name": "name",
   },
   "html": "<div class=\\"name\\"></div>",
@@ -141,27 +121,21 @@ Object {
 
 exports[`should render empty attributes 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "<input type=\\"checkbox\\" value=\\"\\" checked=\\"\\">",
 }
 `;
 
 exports[`should render simple DOM 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "<div>Content</div>",
 }
 `;
 
 exports[`should replace HTML entities with Unicode symbols 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "\\"&amp;'&lt;&gt;©£±¶ — € ♥¬Exists;",
 }
 `;
@@ -169,7 +143,6 @@ Object {
 exports[`should save value for variables in complex cases 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "bar": "second",
     "foo": "first",
   },
@@ -180,7 +153,6 @@ Object {
 exports[`should save value for variables in complex cases 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "bar": "second",
     "foo": "updated",
   },
@@ -190,18 +162,14 @@ Object {
 
 exports[`should support don't render checked == false attr 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "<input type=\\"checkbox\\">",
 }
 `;
 
 exports[`should support expressions without variables 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "7",
 }
 `;
@@ -209,7 +177,6 @@ Object {
 exports[`should support global variables 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "host": "sham-ui-ssr.example.com",
   },
   "html": "
@@ -227,7 +194,6 @@ Object {
 exports[`should support global variables 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "array": Array [
       1,
       2,
@@ -252,18 +218,14 @@ array
 
 exports[`should support render checked == true attr 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "<input type=\\"checkbox\\" checked=\\"\\">",
 }
 `;
 
 exports[`should support style attribute 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "<div style=\\"background-color: red\\">DANGER</div>",
 }
 `;

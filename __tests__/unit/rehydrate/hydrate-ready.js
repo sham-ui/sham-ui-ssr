@@ -17,7 +17,7 @@ it( 'defer hydrating with hydrateReady', async() => {
             </template>
             
             <script>
-                export default Component( Template, function( options, update, didMount ) {
+                export default Component( Template, function( options, didMount ) {
                     const dataLoaded = $();
                     
                     const state = options( {
@@ -38,11 +38,7 @@ it( 'defer hydrating with hydrateReady', async() => {
                         } )
                     }
                     
-                    const loadDataSuccess = () => {
-                        update( {
-                            [ dataLoaded ]: true
-                        } );
-                    }
+                    const loadDataSuccess = () => state[ dataLoaded ] = true;
                 } );
             </script>
         `
@@ -73,7 +69,7 @@ it( 'defer hydrating with hydrateReady with element wrapper', async() => {
             </template>
             
             <script>
-                export default Component( Template, function( options, update, didMount ) {
+                export default Component( Template, function( options, didMount ) {
                     const dataLoaded = $();
                     
                     const state = options( {
@@ -94,11 +90,7 @@ it( 'defer hydrating with hydrateReady with element wrapper', async() => {
                         } )
                     }
                     
-                    const loadDataSuccess = () => {
-                        update( {
-                            [ dataLoaded ]: true
-                        } );
-                    }
+                    const loadDataSuccess = () => state[ dataLoaded ] = true;
                 } );
             </script>
         `

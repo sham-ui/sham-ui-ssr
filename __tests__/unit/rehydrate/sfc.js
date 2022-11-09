@@ -21,7 +21,7 @@ it( 'should single file component work', async() => {
     );
     expect( meta.html ).toBe( '<!--0-->' );
     meta.component.update( { loaded: true } );
-    expect( meta.component.container.innerHTML ).toBe( ' Loaded! <!--0-->' );
+    expect( meta.ctx.container.innerHTML ).toBe( ' Loaded! <!--0-->' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
@@ -54,7 +54,7 @@ it( 'should single file component correct work with options', async() => {
     );
     expect( meta.html ).toBe( '<!--0-->' );
     meta.component.update( { loaded: true } );
-    expect( meta.component.container.innerHTML ).toBe( 'Text for content<!--0-->' );
+    expect( meta.ctx.container.innerHTML ).toBe( 'Text for content<!--0-->' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 

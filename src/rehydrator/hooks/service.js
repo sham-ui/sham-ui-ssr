@@ -37,10 +37,10 @@ export default class RehydrateHooks {
      * @param {Component} component
      */
     resolveID( component ) {
-        const ID = component.options.ID;
+        const ID = component.ctx.ID;
         return 'string' === typeof ID ?
             ID :
-            this.storage[ component.options.parent.ID ].C.shift()
+            this.storage[ component.ctx.parent.ID ].C.shift()
         ;
     }
 }

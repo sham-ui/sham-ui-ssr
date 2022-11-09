@@ -3,19 +3,10 @@
 exports[`function bind correctly work with directives 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
-    "directives": Object {
-      "onclick": [Function],
-    },
     "handler": [MockFunction] {
       "calls": Array [
         Array [
           Component {
-            "DI": Object {
-              "bind": [Function],
-              "bindLazy": [Function],
-              "resolve": [Function],
-            },
             "ID": "component",
             "UI": Store {
               "byId": Map {
@@ -23,15 +14,31 @@ Object {
               },
             },
             "__cache__": Object {},
-            "blocks": Object {},
             "click": [Function],
-            "container": <body>
-              <button>
-                click me
-              </button>
-            </body>,
-            "directives": Object {
-              "onclick": [Function],
+            "ctx": Object {
+              "DI": Object {
+                "bind": [Function],
+                "bindLazy": [Function],
+                "resolve": [Function],
+              },
+              "ID": "component",
+              "appendDirectives": [Function],
+              "appendFilters": [Function],
+              "blocks": Array [],
+              "container": <body>
+                <button>
+                  click me
+                </button>
+              </body>,
+              "directives": Object {
+                "onclick": [Function],
+              },
+              "extend": [Function],
+              "filters": Object {},
+              "onUpdate": [Function],
+              "owner": [Circular],
+              "ref": null,
+              "resetOwner": [Function],
             },
             "dom": Object {
               "build": [Function],
@@ -40,7 +47,6 @@ Object {
               "text": [Function],
               "unsafe": [Function],
             },
-            "filters": Object {},
             "hooks": Object {
               "create": [Function],
               "rehydrate": [Function],
@@ -53,26 +59,15 @@ Object {
                 click me
               </button>,
             ],
-            "onMount": Array [],
+            "onMount": Array [
+              [Function],
+            ],
+            "onReceive": Array [],
             "onRemove": Array [
               [Function],
             ],
             "onRender": [Function],
             "options": Object {
-              "DI": Object {
-                "bind": [Function],
-                "bindLazy": [Function],
-                "resolve": [Function],
-              },
-              "ID": "component",
-              "container": <body>
-                <button>
-                  click me
-                </button>
-              </body>,
-              "directives": Object {
-                "onclick": [Function],
-              },
               "handler": [MockFunction] {
                 "calls": [Circular],
                 "results": Array [
@@ -83,8 +78,7 @@ Object {
                 ],
               },
             },
-            "owner": undefined,
-            "parent": undefined,
+            "spots": Array [],
           },
           "click",
         ],

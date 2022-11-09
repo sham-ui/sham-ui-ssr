@@ -61,7 +61,7 @@ it( 'should save value for variables in complex cases', async() => {
     meta.component.update( {
         foo: 'updated'
     } );
-    expect( meta.component.container.innerHTML ).toBe( '<div class="updated second"></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div class="updated second"></div>' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
@@ -141,7 +141,8 @@ it( 'should properly for with filters', async() => {
     };
     const meta = await ssrAndRehydrate(
         compile`<p>{{ text | append('case') | upperCase }}</p>`,
-        { filters, text: 'upper_' }
+        { text: 'upper_' },
+        { filters }
     );
     expect( meta.html ).toBe( '<p>UPPER_CASE</p>' );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -166,7 +167,7 @@ it( 'should work with expressions', async() => {
     );
     expect( meta.html ).toBe( '<a title="150">abc</a>' );
     meta.component.update( { more: { amazing: 'Amazing!' } } );
-    expect( meta.component.container.innerHTML ).toBe( '<a title="150">Amazing!bc</a>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<a title="150">Amazing!bc</a>' );
 } );
 
 it( 'should render empty attributes', async() => {

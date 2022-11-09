@@ -8,7 +8,7 @@
 
 
 <script>
-    function Dummy( options, update, didMount ) {
+    function Dummy( options, didMount ) {
         const dataLoaded = $();
 
         const state = options( {
@@ -24,9 +24,7 @@
         const loadData = () => new Promise( resolve => {
             setTimeout( resolve );
         } ).then(
-            () => update( {
-                [ dataLoaded ]: true
-            } )
+            () => state[ dataLoaded ] = true
         );
     }
 

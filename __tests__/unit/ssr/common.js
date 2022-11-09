@@ -136,7 +136,8 @@ it( 'should properly for with filters', async() => {
     };
     const meta = await ssr(
         compile`<p>{{ text | append('case') | upperCase }}</p>`,
-        { filters, text: 'upper_' }
+        { text: 'upper_' },
+        { filters }
     );
     expect( meta.html ).toBe( '<p>UPPER_CASE</p>' );
     expect( meta.toJSON() ).toMatchSnapshot();

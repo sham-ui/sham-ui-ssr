@@ -33,12 +33,12 @@ it( 'should render arrays', async() => {
     );
 
     meta.component.update( { list: [ 1, 3 ] } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<ul><li>0<!--0-->:<!--1-->1</li><li>1<!--0-->:<!--1-->3</li></ul>'
     );
 
     meta.component.update( { list: [ 'a', 'b', 'c', 'd' ] } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<ul><li>0<!--0-->:<!--1-->a</li><li>1<!--0-->:<!--1-->b</li><li>2:c</li><li>3:d</li></ul>'
     );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -74,7 +74,7 @@ it( 'should override default attributes', async() => {
             id: 'boo'
         }
     } );
-    expect( meta.component.container.innerHTML ).toBe( '<div id="boo"></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div id="boo"></div>' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
@@ -95,10 +95,10 @@ it( 'should override variables attributes', async() => {
             id: 'boo'
         }
     } );
-    expect( meta.component.container.innerHTML ).toBe( '<div id="boo"></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div id="boo"></div>' );
 
     meta.component.update( { id: 'bar', attr: {} } );
-    expect( meta.component.container.innerHTML ).toBe( '<div id="bar"></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div id="bar"></div>' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
@@ -125,7 +125,7 @@ it( 'should work for custom tags', async() => {
             boo: 'Boo-Ya'
         }
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         '<div><i>foo</i><i>Boo-Ya</i><i>bar</i></div>'
     );
@@ -152,7 +152,7 @@ it( 'should work for custom tags with constant attributes values', async() => {
             bar: 'bar'
         }
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div><i>foo</i><i>boo</i><i>bar</i></div>'
     );
 
@@ -161,7 +161,7 @@ it( 'should work for custom tags with constant attributes values', async() => {
             foo: 'over foo'
         }
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div><i>foo</i><i>boo</i><i>bar</i></div>'
     );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -187,12 +187,12 @@ it( 'should work for custom tags with attributes with values', async() => {
             bar: 'bar'
         }
     } );
-    expect( meta.component.container.innerHTML ).toBe( '<div><i> </i><i>boo</i><i>bar</i></div>' );
+    expect( meta.ctx.container.innerHTML ).toBe( '<div><i> </i><i>boo</i><i>bar</i></div>' );
 
     meta.component.update( {
         foo: 'foo'
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div><i>foo</i><i>boo</i><i>bar</i></div>'
     );
 
@@ -202,7 +202,7 @@ it( 'should work for custom tags with attributes with values', async() => {
         },
         foo: 'for'
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div><i>for</i><i>boo</i><i>bar</i></div>'
     );
     expect( meta.toJSON() ).toMatchSnapshot();
@@ -227,7 +227,7 @@ it( 'should work for custom tags proxy __data__', async() => {
     meta.component.update( {
         boo: 'Boo-Ya'
     } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         '<div><i>foo</i><i>Boo-Ya</i><i>bar</i></div>'
     );
     expect( meta.toJSON() ).toMatchSnapshot();

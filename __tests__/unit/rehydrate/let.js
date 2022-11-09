@@ -25,7 +25,7 @@ it( 'should single file component work', async() => {
     );
     expect( html ).toBe( '<ul><li>3</li><li>2</li><li>1</li></ul>' );
     component.update( { a: 3 } );
-    expect( component.container.innerHTML ).toBe( '<ul><li>5</li><li>2</li><li>3</li></ul>' );
+    expect( component.ctx.container.innerHTML ).toBe( '<ul><li>5</li><li>2</li><li>3</li></ul>' );
 } );
 
 it( 'should single file component and methods work', async() => {
@@ -56,7 +56,7 @@ it( 'should single file component and methods work', async() => {
     );
     expect( html ).toBe( '<ul><li>3</li><li>2</li><li>1</li></ul>' );
     component.update( { a: 3 } );
-    expect( component.container.innerHTML ).toBe( '<ul><li>5</li><li>2</li><li>3</li></ul>' );
+    expect( component.ctx.container.innerHTML ).toBe( '<ul><li>5</li><li>2</li><li>3</li></ul>' );
 } );
 
 it( 'should work in for loop', async() => {
@@ -86,9 +86,9 @@ it( 'should work in for loop', async() => {
     );
     expect( html ).toBe( '<ul><li>5</li><li>4</li><li>3</li></ul>' );
     component.update( { arr: [ 1, 2 ] } );
-    expect( component.container.innerHTML ).toBe( '<ul><li>2</li><li>1</li></ul>' );
+    expect( component.ctx.container.innerHTML ).toBe( '<ul><li>2</li><li>1</li></ul>' );
     component.update( { arr: [ 1, 2, 3, 4 ] } );
-    expect( component.container.innerHTML ).toBe(
+    expect( component.ctx.container.innerHTML ).toBe(
         '<ul><li>9</li><li>8</li><li>7</li><li>6</li></ul>'
     );
 } );
@@ -114,7 +114,7 @@ it( 'should\'t update let vars', async() => {
     );
     expect( html ).toBe( '84' );
     component.update( { sum: 2 } );
-    expect( component.container.innerHTML ).toBe( '84' );
+    expect( component.ctx.container.innerHTML ).toBe( '84' );
 } );
 
 it( 'should correct build spots order', async() => {
@@ -136,5 +136,5 @@ it( 'should correct build spots order', async() => {
     );
     expect( html ).toBe( '<ul><li>6</li><li>5</li><li>3</li></ul>' );
     component.update( { a: 4 } );
-    expect( component.container.innerHTML ).toBe( '<ul><li>9</li><li>5</li><li>6</li></ul>' );
+    expect( component.ctx.container.innerHTML ).toBe( '<ul><li>9</li><li>5</li><li>6</li></ul>' );
 } );

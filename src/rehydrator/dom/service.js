@@ -63,7 +63,7 @@ export default class RestoreDom {
     }
 
     _getElement( component ) {
-        let container = component.container;
+        let container = component.ctx.container;
         if ( 8 === container.nodeType ) {
 
             // Container is a comment, user parent

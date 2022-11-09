@@ -7,16 +7,6 @@ import Root from './root';
 export default class Storage {
     constructor() {
         this.byId = {};
-        this._ignoredKeys = new Set( [
-            'ID',
-            'container',
-            'parent',
-            'owner',
-            'blocks',
-            'directives',
-            'filters',
-            'DI'
-        ] );
         this.root = new Root();
     }
 
@@ -49,11 +39,6 @@ export default class Storage {
     }
 
     _hydrateOption( component, data, key, value ) {
-        if ( this._ignoredKeys.has( key ) ) {
-
-            // Ignore internal options
-            return false;
-        }
         if ( 'function' === typeof value ) {
 
             // Ignore functions

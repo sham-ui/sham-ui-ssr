@@ -43,10 +43,12 @@ it( 'function bind correctly work with directives', async() => {
         </script>
         `,
         {
+            handler
+        },
+        {
             directives: {
                 onclick: OnClickEventListener
-            },
-            handler
+            }
         }
     );
     expect( meta.html ).toBe(

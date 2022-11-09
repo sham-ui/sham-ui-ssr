@@ -3,7 +3,6 @@
 exports[`hydrated options 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "adminID": "real admin ID",
     "extraData": 42,
   },

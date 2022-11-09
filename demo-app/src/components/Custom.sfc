@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    function Custom( options, update ) {
+    function Custom( options ) {
         const firstName = $();
         const lastName = $();
         const value = $();
@@ -48,12 +48,8 @@
             [ items ]: [ 'foo', 'bar', 'baz' ]
         } );
 
-        this$.onInput = () => update( {
-            [ value ]: this.input.value
-        } );
-        this$.toggleEnabled  = () => update( {
-            [ enabled ]: !state[ enabled ]
-        } );
+        this$.onInput = () => state[ value ] = this.input.value;
+        this$.toggleEnabled  = () => state[ enabled ] = !state[ enabled ];
     }
     export default Component( Template, Custom );
 </script>

@@ -2,9 +2,7 @@
 
 exports[`should single file component correct work with context in blocks 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "
 <div>
   <div class=\\"title\\">
@@ -21,7 +19,6 @@ Object {
 exports[`should single file component correct work with options 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "loaded": true,
     "text": "Text for content",
   },
@@ -35,7 +32,6 @@ Text for content
 exports[`should single file component work 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "loaded": true,
   },
   "html": "
@@ -47,9 +43,7 @@ Object {
 
 exports[`should work with class getters in expressions 1`] = `
 Object {
-  "Options": Object {
-    "ID": "component",
-  },
+  "Options": Object {},
   "html": "<span>John Smith</span>",
 }
 `;
@@ -57,7 +51,6 @@ Object {
 exports[`should work with class getters in if 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "user": "Joh Smith",
   },
   "html": "
@@ -70,7 +63,6 @@ Object {
 exports[`should work with class property in for 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "userList": Array [
       "John Smith",
       "Adam Mock",

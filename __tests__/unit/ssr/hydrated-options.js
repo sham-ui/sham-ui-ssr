@@ -11,7 +11,7 @@ it( 'hydrated options', async() => {
             </template>
             
             <script>
-                export default Component( Template, function( options, update, didMount ) {
+                export default Component( Template, function( options, didMount ) {
                     const adminID = $();
                     
                     const state = options( {

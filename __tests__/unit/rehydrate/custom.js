@@ -32,7 +32,7 @@ it( 'should properly work with attributes', async() => {
         '<div><h1>string</h1><div>text</div><!--0--><h1>title</h1><div>content</div><!--1--></div>'
     );
     meta.component.update( { value: 'updated' } );
-    expect( meta.component.container.innerHTML ).toBe(
+    expect( meta.ctx.container.innerHTML ).toBe(
         // eslint-disable-next-line max-len
         '<div><h1>string</h1><div>text</div><!--0--><h1>updated</h1><div>content</div><!--1--></div>'
     );

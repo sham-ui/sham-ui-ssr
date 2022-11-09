@@ -11,7 +11,7 @@ it( 'hydrated options', async() => {
             </template>
             
             <script>
-                export default Component( Template, function( options, update, didMount ) {
+                export default Component( Template, function( options, didMount ) {
                     const adminID = $();
                     
                     const state = options( {
@@ -32,6 +32,6 @@ it( 'hydrated options', async() => {
         }
     );
     expect( meta.html ).toBe( 'real admin ID' );
-    expect( meta.component.container.innerHTML ).toBe( 'real admin ID' );
+    expect( meta.ctx.container.innerHTML ).toBe( 'real admin ID' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
