@@ -1,3 +1,7 @@
+## master
+* Fix create fake comment in root component
+* Update dependencies 
+
 ## 2.0.0-alpha.2
 * Update dependencies
 

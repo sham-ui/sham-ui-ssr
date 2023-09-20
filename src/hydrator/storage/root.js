@@ -38,6 +38,8 @@ export default class Root {
                     fakeCommentsCount++;
                 }
                 lastNodeIsText = true;
+            } else {
+                lastNodeIsText = false;
             }
             result += node.hydrate( storage, [ i + fakeCommentsCount ] );
         } );
