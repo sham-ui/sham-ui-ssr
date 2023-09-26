@@ -4,7 +4,7 @@
   "author": "Eugeny Burnashov <shamcode@gmail.com>",
   "main": "lib/index.js",
   "module": "module/index.js",
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "scripts": {
     "start": "MACRO_REF_REPLACE=enabled rollup -w -c ./demo-app/rollup.config.js",
     "test:clear-cache": "jest --clearCache",
@@ -47,13 +47,13 @@
     "rollup-plugin-node-resolve-with-sham-ui-macro": "^2.0.0",
     "rollup-plugin-scss": "^2.6.1",
     "rollup-plugin-serve": "^1.1.0",
-    "rollup-plugin-sham-ui-templates": "^1.0.20",
+    "rollup-plugin-sham-ui-templates": "^1.0.21",
     "sass": "^1.32.12",
     "sham-ui-macro": "^3.6.0",
     "sham-ui-macro-jest-preprocessor": "^1.0.0",
-    "sham-ui-templates": "^6.0.0-alpha.5",
-    "sham-ui-templates-jest-preprocessor": "^1.2.15",
-    "sham-ui-test-helpers": "^6.0.0-alpha.5",
+    "sham-ui-templates": "^6.0.0-alpha.6",
+    "sham-ui-templates-jest-preprocessor": "^1.2.16",
+    "sham-ui-test-helpers": "^6.0.0-alpha.6",
     "sham-ui-unsafe": "^0.0.1",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended-scss": "^3.3.0",
@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "pretty": "^2.0.0",
-    "sham-ui": "^6.0.0-alpha.4"
+    "sham-ui": "^6.0.0-alpha.5"
   },
   "stylelint": {
     "extends": "stylelint-config-recommended-scss"

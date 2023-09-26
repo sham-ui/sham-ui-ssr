@@ -13,6 +13,18 @@ export default class ServerSideHooks {
 
         // Make fast snapshot for default options
         component.defaultOptions = Object.assign( {}, component.options );
+
+        // Store options received from parent component
+        component.receivedOptionNames = new Set();
+        if ( undefined !== component.ctx.parent  ) {
+            component.onReceive.push(
+                data => Object.keys( data )
+                    .forEach(
+                        key => component.receivedOptionNames.add( key )
+                    )
+            );
+        }
+
     }
 
     /**

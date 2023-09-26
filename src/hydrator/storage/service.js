@@ -49,6 +49,12 @@ export default class Storage {
             // Ignore don't changed default options
             return false;
         }
+
+        if ( component.receivedOptionNames.has( key ) ) {
+
+            // Ignore options received from parent
+            return false;
+        }
         data[ key ] = value;
         return true;
     }

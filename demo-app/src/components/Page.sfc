@@ -10,7 +10,7 @@
 <script>
     function Dummy( options ) {
         options( {
-            [ $.dataLoaded ]: true
+            [ $.dataLoaded ]: false
         } );
     }
 

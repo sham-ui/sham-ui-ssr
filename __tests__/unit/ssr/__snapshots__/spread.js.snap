@@ -114,11 +114,6 @@ exports[`should work for custom tags 1`] = `
 Object {
   "data": "{
     \\"1\\": {
-        \\"O\\": {
-            \\"foo\\": \\"foo\\",
-            \\"boo\\": \\"boo\\",
-            \\"bar\\": \\"bar\\"
-        },
         \\"N\\": [
             0,
             [
@@ -160,11 +155,6 @@ exports[`should work for custom tags proxy __data__ 1`] = `
 Object {
   "data": "{
     \\"1\\": {
-        \\"O\\": {
-            \\"foo\\": \\"foo\\",
-            \\"boo\\": \\"boo\\",
-            \\"bar\\": \\"bar\\"
-        },
         \\"N\\": [
             0,
             [
@@ -247,9 +237,6 @@ exports[`should work for custom tags with constant attributes values 1`] = `
 Object {
   "data": "{
     \\"1\\": {
-        \\"O\\": {
-            \\"foo\\": \\"foo\\"
-        },
         \\"N\\": [
             0,
             [

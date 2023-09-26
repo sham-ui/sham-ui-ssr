@@ -1,5 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`default hydration options 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"O\\": {
+            \\"adminID\\": \\"changed admin ID\\"
+        },
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "changed admin ID",
+}
+`;
+
 exports[`hydrated options 1`] = `
 Object {
   "data": "{
