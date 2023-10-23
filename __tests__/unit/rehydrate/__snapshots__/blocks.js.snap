@@ -40,7 +40,7 @@ Object {
 }
 `;
 
-exports[`should work with {% block "default" %} 1`] = `
+exports[`should work with {% default %} 1`] = `
 Object {
   "Options": Object {},
   "html": "

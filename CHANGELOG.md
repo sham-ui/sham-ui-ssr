@@ -1,3 +1,6 @@
+## 2.0.0-alpha.4
+* Update dependencies
+
 ## 2.0.0-alpha.3
 * Fix create fake comment in root component
 * Update dependencies 

@@ -27,15 +27,15 @@ afterEach( () => {
     delete window.TextContent;
 } );
 
-it( 'should work with {% block "default" %}', async() => {
+it( 'should work with {% default %}', async() => {
     expect.assertions( 2 );
     const meta = await ssr(
         compile`
             <div>
                 <LinkTo>
-                    {% block 'default' %}
+                    {% default %}
                         Text for content
-                    {% endblock %}
+                    {% end default %}
                 </LinkTo>
             </div>
         `,
@@ -52,7 +52,7 @@ it( 'should work with two named blocks', async() => {
     window.CustomPanel = compile`
         <div>
             <div class="title">
-                {% defblock 'title' %}
+                {% defblock title %}
             </div>
             <div class="content">
                 {% defblock %}
@@ -63,13 +63,13 @@ it( 'should work with two named blocks', async() => {
         compile`
             <div>
                 <CustomPanel>
-                    {% block 'title' %}
+                    {% title  %}
                         Text for title
-                    {% endblock %}
+                    {% end title %}
 
-                    {% block 'default' %}
+                    {% default %}
                         Text for content
-                    {% endblock %}
+                    {% end default %}
                 </CustomPanel>
             </div>
         `,
@@ -89,9 +89,9 @@ it( 'should work with component arguments', async() => {
         compile`
             <div>
                 <LinkTo url={{url}}>
-                    {% block 'default' %}
+                    {% default %}
                         Text for {{url}}
-                    {% endblock %}
+                    {% end default %}
                 </LinkTo>
             </div>
         `,

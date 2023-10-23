@@ -63,7 +63,7 @@ it( 'should single file component correct work with context in blocks', async() 
     window.CustomPanel = compile`
         <div>
             <div class="title">
-                {% defblock 'title' %}
+                {% defblock title %}
             </div>
         </div>
     `;
@@ -71,9 +71,9 @@ it( 'should single file component correct work with context in blocks', async() 
         compileAsSFC`
         <template>
             <CustomPanel>
-                {% block 'title' %}
+                {% title %}
                     {{this.title()}}
-                {% endblock %}
+                {% end title %}
             </CustomPanel>
         </template>
         
