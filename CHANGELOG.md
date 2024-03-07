@@ -1,3 +1,6 @@
+## 2.1.0
+* Fix XSS
+
 ## 2.0.0
 * Update dependencies
 

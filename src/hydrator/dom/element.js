@@ -1,8 +1,20 @@
+import escapeHTML from 'escape-html';
+
 import TextNode from './text';
 
 const singleElements = [ 'input', 'hr', 'br' ];
 const booleanAttributes = [ 'checked', 'selected' ];
 const plainAttributes = [ 'id', 'value', 'checked', 'selected', 'href' ];
+const ignoreContentEscapeTags = [ 'script', 'style' ];
+
+// eslint-disable-next-line no-control-regex
+const attrNameRegexp = /(?![/-0-9A-Za-z])[\u0000-\u00FF]/g;
+function escapeAttribute( unsafe ) {
+    return unsafe.replace(
+        attrNameRegexp,
+        c => '&#' + ( '000' + c.charCodeAt( 0 ) ).slice( -4 ) + ';'
+    );
+}
 
 /**
  * @inner
@@ -11,6 +23,7 @@ export default class Element {
     constructor( component, tagName ) {
         this.component = component;
         this.tagName = tagName;
+        this.igoreTextContentEscape = ignoreContentEscapeTags.includes( tagName.toLowerCase() );
         this.attributes = {};
         this.childNodes = [];
         this.innerHTML = '';
@@ -100,11 +113,12 @@ export default class Element {
                     result += ` ${attrName}`;
                 }
             } else {
-                result += ` ${attrName}="${this.attributes[ attrName ]}"`;
+                const attrValue = escapeHTML( this.attributes[ attrName ] );
+                result += ` ${escapeAttribute( attrName )}="${attrValue}"`;
             }
         }
         if ( this._classList.length > 0 ) {
-            result += ` class="${this._classList.join( ' ' )}"`;
+            result += ` class="${escapeHTML( this._classList.join( ' ' ) )}"`;
         }
         result += '>';
 
@@ -123,7 +137,11 @@ export default class Element {
                 lastNodeIsText = false;
             }
             if ( node.component === component ) {
-                result += node.hydrate( storage, [ ...index, i + fakeCommentsCount ] );
+                result += node.hydrate(
+                    storage,
+                    [ ...index, i + fakeCommentsCount ],
+                    lastNodeIsText && this.igoreTextContentEscape
+                );
             } else {
                 result += node.hydrate( storage, [ i + fakeCommentsCount ] );
             }

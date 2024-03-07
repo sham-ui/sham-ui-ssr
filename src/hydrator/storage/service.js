@@ -1,3 +1,4 @@
+import serialize from 'serialize-javascript';
 import Root from './root';
 
 /**
@@ -72,9 +73,10 @@ export default class Storage {
 
     hydrate() {
         const html = this.root.hydrate( this );
+        const data = serialize( this.byId, { isJSON: true } );
         return {
             html,
-            data: JSON.stringify( this.byId, null, 0 )
+            data
         };
     }
 }

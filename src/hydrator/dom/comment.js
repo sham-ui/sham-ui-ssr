@@ -1,3 +1,5 @@
+import escapeHTML from 'escape-html';
+
 /**
  * Server side wrapper for comment node
  * @inner
@@ -25,6 +27,6 @@ export default class CommentNode {
             i = i[ 0 ];
         }
         storage.addNode( this.component.ID, i );
-        return `<!--${this.textContent}-->`;
+        return `<!--${escapeHTML( this.textContent )}-->`;
     }
 }

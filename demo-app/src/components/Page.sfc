@@ -1,8 +1,11 @@
+{% import Custom from "./Custom.sfc" %}
+
 <template>
     {% if dataLoaded %}
         <div class="page-body">
             {% defblock 'default' %}
         </div>
+        <Custom/>
     {% endif %}
 </template>
 

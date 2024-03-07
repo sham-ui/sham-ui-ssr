@@ -1,5 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should escape atrribute name 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<button onclick&#0061;alert&#0040;&#0049;&#0041;=\\"1\\"></button>",
+}
+`;
+
+exports[`should escape attribute value 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<button color=\\"&quot; onclick=&quot;alert(1)&quot;\\"></button>",
+}
+`;
+
+exports[`should escape class atrribute 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<button class=\\"&quot; onclick=&quot;alert(1)&quot;\\"></button>",
+}
+`;
+
+exports[`should escape textContent 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "&lt;sciprt&gt;alert(1)&lt;/script&gt;",
+}
+`;
+
 exports[`should ignore all html comments 1`] = `
 Object {
   "data": "{
@@ -88,6 +140,19 @@ Object {
   <p>b</p>
 </div>
 ",
+}
+`;
+
+exports[`should pass real onclick atrribute 1`] = `
+Object {
+  "data": "{
+    \\"component\\": {
+        \\"N\\": [
+            0
+        ]
+    }
+}",
+  "html": "<button onclick=\\"alert(1)\\"></button>",
 }
 `;
 
@@ -280,7 +345,7 @@ Object {
         ]
     }
 }",
-  "html": "\\"&'<>©£±¶ — € ♥&notExists;",
+  "html": "&quot;&amp;&#39;&lt;&gt;©£±¶ — € ♥&amp;notExists;",
 }
 `;
 
@@ -408,7 +473,7 @@ array
 <!--2-->,
 <!--3-->a;b
 <!--4-->,
-<!--5-->{\\"a\\":1,\\"b\\":2}
+<!--5-->{&quot;a&quot;:1,&quot;b&quot;:2}
 ",
 }
 `;

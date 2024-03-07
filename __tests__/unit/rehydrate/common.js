@@ -225,7 +225,8 @@ it( 'should support global variables', async() => {
         }
     );
     expect( second.html ).toBe(
-        'array<!--0-->, <!--1-->4<!--2-->, <!--3-->a;b<!--4-->, <!--5-->{"a":1,"b":2}'
+        // eslint-disable-next-line max-len
+        'array<!--0-->, <!--1-->4<!--2-->, <!--3-->a;b<!--4-->, <!--5-->{&quot;a&quot;:1,&quot;b&quot;:2}'
     );
     expect( second.toJSON() ).toMatchSnapshot();
 } );
@@ -256,7 +257,7 @@ it( 'should replace HTML entities with Unicode symbols', async() => {
     const meta = await ssrAndRehydrate(
         compile`&quot;&amp;&apos;&lt;&gt;&copy;&pound;&plusmn;&para;&ensp;&mdash;&emsp;&euro;&thinsp;&hearts;&notExists;`
     );
-    expect( meta.html ).toBe( '"&\'<>©£±¶ — € ♥&notExists;' );
+    expect( meta.html ).toBe( '&quot;&amp;&#39;&lt;&gt;©£±¶ — € ♥&amp;notExists;' );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
@@ -293,5 +294,60 @@ it( 'should support don\'t render checked == false attr', async() => {
         compile`<input type="checkbox" checked={{false}}/>`
     );
     expect( meta.html ).toBe( '<input type="checkbox">' );
+    expect( meta.toJSON() ).toMatchSnapshot();
+} );
+
+it( 'should escape textContent', async() => {
+    expect.assertions( 2 );
+    const meta = await ssrAndRehydrate(
+        compile`{{content}}`,
+        {
+            content: '<sciprt>alert(1)</script>'
+        }
+    );
+    expect( meta.html ).toBe( '&lt;sciprt&gt;alert(1)&lt;/script&gt;' );
+    expect( meta.toJSON() ).toMatchSnapshot();
+} );
+
+it( 'should escape attribute value', async() => {
+    expect.assertions( 2 );
+    const meta = await ssrAndRehydrate(
+        compile`<button color={{value}}></button>`,
+        {
+            value: '" onclick="alert(1)"'
+        }
+    );
+    expect( meta.html ).toBe(
+        '<button color="&quot; onclick=&quot;alert(1)&quot;"></button>'
+    );
+    expect( meta.toJSON() ).toMatchSnapshot();
+} );
+
+
+it( 'should escape class atrribute', async() => {
+    expect.assertions( 2 );
+    const meta = await ssrAndRehydrate(
+        compile`<button class={{value}}></button>`,
+        {
+            value: '" onclick="alert(1)"'
+        }
+    );
+    expect( meta.html ).toBe(
+        '<button class="&quot; onclick=&quot;alert(1)&quot;"></button>'
+    );
+    expect( meta.toJSON() ).toMatchSnapshot();
+} );
+
+it( 'should pass real onclick atrribute', async() => {
+    expect.assertions( 2 );
+    const meta = await ssrAndRehydrate(
+        compile`<button onclick={{value}}></button>`,
+        {
+            value: 'alert(1)'
+        }
+    );
+    expect( meta.html ).toBe(
+        '<button onclick="alert(1)"></button>'
+    );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );

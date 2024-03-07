@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should escape attribute value 1`] = `
+Object {
+  "Options": Object {
+    "value": "\\" onclick=\\"alert(1)\\"",
+  },
+  "html": "<button color=\\"&quot; onclick=&quot;alert(1)&quot;\\"></button>",
+}
+`;
+
+exports[`should escape class atrribute 1`] = `
+Object {
+  "Options": Object {
+    "value": "\\" onclick=\\"alert(1)\\"",
+  },
+  "html": "<button class=\\"&quot; onclick=&quot;alert(1)&quot;\\"></button>",
+}
+`;
+
+exports[`should escape textContent 1`] = `
+Object {
+  "Options": Object {
+    "content": "<sciprt>alert(1)</script>",
+  },
+  "html": "&lt;sciprt&gt;alert(1)&lt;/script&gt;",
+}
+`;
+
 exports[`should ignore all html comments 1`] = `
 Object {
   "Options": Object {},
@@ -41,6 +68,15 @@ Object {
   <p>b</p>
 </div>
 ",
+}
+`;
+
+exports[`should pass real onclick atrribute 1`] = `
+Object {
+  "Options": Object {
+    "value": "alert(1)",
+  },
+  "html": "<button onclick=\\"alert(1)\\"></button>",
 }
 `;
 
@@ -136,7 +172,7 @@ Object {
 exports[`should replace HTML entities with Unicode symbols 1`] = `
 Object {
   "Options": Object {},
-  "html": "\\"&amp;'&lt;&gt;©£±¶ — € ♥¬Exists;",
+  "html": "\\"&amp;'&lt;&gt;©£±¶ — € ♥&amp;notExists;",
 }
 `;
 

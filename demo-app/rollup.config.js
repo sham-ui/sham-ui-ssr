@@ -44,7 +44,8 @@ export default {
             }
         } ),
         nodeResolveWithMacro( {
-            browser: true
+            browser: true,
+            preferBuiltins: false
         } ),
         babel( {
             extensions: [ '.js', '.sht', '.sfc' ],

@@ -30,22 +30,32 @@
     <p>
         Total items: {{items.length}}
     </p>
+    <p custom-attr={{xssAttrValue}} class="{{xssClass}}">
+        {{xssContent}}
+        content
+    </p>
 </template>
 
 <script>
-    function Custom( options ) {
+    function Custom( options, didMount ) {
         const firstName = $();
         const lastName = $();
         const value = $();
         const enabled = $();
         const items = $();
+        const xssAttrValue = $();
+        const xssClass= $();
+        const xssContent = $();
 
         const state = options( {
             [ firstName ]: 'John',
             [ lastName ]: 'Smith',
             [ value ]: 42,
             [ enabled ]: true,
-            [ items ]: [ 'foo', 'bar', 'baz' ]
+            [ items ]: [ 'foo', 'bar', 'baz' ],
+            [ xssAttrValue ]: '" onclick=alert(1)',
+            [ xssClass ]: '"fakeclass" onclick="alert(2)"',
+            [ xssContent ]: '<script>alert(3)<' + '/script>'
         } );
 
         this$.onInput = () => state[ value ] = this.input.value;
