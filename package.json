@@ -13,6 +13,7 @@
     "build": "rollup -c",
     "size": "MACRO_REF_REPLACE=uniq yarn build && size-limit",
     "prepublish": "yarn size && yarn build",
+    "prepare": "yarn size && yarn build",
     "doc:generate": "documentation readme src/rehydrator/index.js src/hydrator/index.js src/testing/index.js --section=API",
     "doc:lint": "documentation lint src/**"
   },
